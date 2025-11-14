@@ -1356,7 +1356,6 @@ a.yd-link {
 #header2016 {
 	position:relative;
 	z-index:10100;
-	box-shadow:0 1px 5px 0 rgba(70,70,70,.392);
 	background-color:#fff
 }
 .global-notice {
@@ -2195,28 +2194,35 @@ input.fix-autofill-bg.form-input {
 
 #header2016 .main-nav-wrapper {
 	float:right;
-	height:80px;
+	height:58px;
 	overflow:hidden
 }
 #header2016 .main-nav-wrapper li {
-	float:left
+	float:left;
+	height: 100%;
+	display: flex;
+	align-items: center;
 }
 #header2016 .main-nav-wrapper li a.nav-menu {
-	padding:8px 12px;
-	margin:0 3px;
-	height:80px;
-	line-height:80px;
-	border-bottom:5px solid #fff;
-	color:#666;
-	font-size:16px
+	text-decoration: none;
+	color: rgba(0,0,0,0.55);
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	font-size: 15px;
+	padding: 0 12px;
+	height: 42px;
+	box-sizing: border-box;
 }
 #header2016 .main-nav-wrapper li a.nav-menu.current,#header2016 .main-nav-wrapper li a.nav-menu.hover,#header2016 .main-nav-wrapper li a.nav-menu:hover {
-	border-bottom:5px solid #00a6d8;
 	-webkit-transition:all .3s;
 	transition:all .3s
 }
 #header2016 .main-nav-wrapper li a.nav-menu:hover {
-	color:#00a6d8
+	color:#0052d9
+}
+#header2016 .main-nav-wrapper li a.nav-menu.current {
+	border: 1px solid #0052d9;
 }
 #header2016 .nav-content {
 	position:absolute;

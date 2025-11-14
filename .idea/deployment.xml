@@ -6,7 +6,7 @@
       <paths name="易塔云-虚拟机">
         <serverdata>
           <mappings>
-            <mapping deploy="/wwwroot/Template/Tpl_2025_custom" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/wwwroot/Template/Tpl_2016" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

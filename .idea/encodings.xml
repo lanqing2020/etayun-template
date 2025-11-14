@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/config/bottom.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/config/top.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/config/top_Main.html" charset="GBK" />
   </component>
 </project>

@@ -20,12 +20,12 @@ a.g-link,a.g-link:hover{color: #666}
 #header2016 .headerTop{background-color: #24292f;color: #fff; height:38px;}
 #header2016 .header-nav{background-color: #fff;}
 #header2016 .header-nav-content{background-color: #fff;position: relative;width: 100%; height: 58px;}
-#header2016 .main-nav-wrapper{margin-right: 0px}
+#header2016 .main-nav-wrapper{margin-right: 0;}
 #header2016 .wide1190{padding: 0; height: 100%;}
-#header2016 .header-nav .logo{margin:0px;width: 160px; overflow:hidden;height: 56px; text-align: center}
-#header2016 .header-nav .logo img{max-width:200px;}
+#header2016 .header-nav .logo{background: #fff !important;margin:0;width: 160px; overflow:hidden;height: 58px; text-align: center;display: flex;align-items: center;}
+#header2016 .header-nav .logo img{max-width:200px;width: 160px;height: 46px;}
 #header2016 .header-reg{color: #fff}
-#header2016 .header-pos{ position: absolute;width: 100%}
+#header2016 .header-pos{ position: absolute;width: 100%;height: 100%;}
 #header2016 .topnav li .menu,#header2016 .login-left{height: 38px;line-height: 38px;}
 #header2016 .login-input {
 	padding-left:10px;
@@ -318,9 +318,8 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 .navbar-left .nl-list .item a {
 	display: block;
 	padding-left: 10px;
-	height: 46px;
-	line-height: 46px;
-	border-bottom: 1px solid #e5e5e5;
+	height: 40px;
+	line-height: 40px;
 	font-size: 14px;
 	color: #434343;
 }
@@ -328,10 +327,10 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 /*����*/
 
 .navbar-left .nl-list .active a, .navbar-left .nl-list li:hover a  {
-	height: 46px;
-	line-height: 46px;
-	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
 	position: relative;
+	border-radius: 6px;
 }
 .navbar-left .nl-list  a{height: 46px;
 	line-height: 46px;
