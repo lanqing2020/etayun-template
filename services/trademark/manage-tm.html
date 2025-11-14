@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
+    <meta name="description"
+          content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
+    <meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/lib/element-ui/@2.13.0/index.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/page/user/trademark/manage-tm.css">
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
+    <script src="/Template/Tpl_2016/jscripts/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
+{#top.html}
+<!-- 内容区域 开始 -->
+<body class="min990">
+    <div id="J_containerContent" v-cloak>
+        <div class="container">
+            <div class="wide1190 reg-container">
+                <div class="reg-steps"><img src="https://www.west.cn/paas/images/trademark/reg/reg-flow.png" alt="商标注册流程"></div>
+                
+                <div class="reg-title"><i class="reg-title-icon apply-icon"></i>商标申请信息</div>
+                <div class="reg-row cl">
+                    <label class="row-left required">申请人模板：</label>
+                    <div class="row-right">
+                        <select class="reg-select" v-model="regData.proposer">
+                            <option value="" selected>请选择申请人模板</option>
+                            <template v-for="item in proposerList">
+                                <option :value="item.id">{{item.item_name}}</option>
+                            </template>
+                        </select>
+                        <a class="manage-user blue-link" target="_blank" href="/manager/trademark/manage-proposer.asp"><i></i>创建/管理申请人模板</a>
+                    </div>
+                </div>
+                <div class="reg-row cl">
+                    <label class="row-left required">商标类型：</label>
+                    <div class="row-right">
+                        <div class="reg-radio">
+                            <input type="radio" name="trademark_type" v-model="regData.type" id="J_trademark_type_0" value="0">
+                            <label for="J_trademark_type_0" class="v-radio-label">文字商标</label>
+                            <input type="radio" name="trademark_type" v-model="regData.type" id="J_trademark_type_1" value="1">
+                            <label for="J_trademark_type_1" class="v-radio-label ml-40">图形商标</label>
+                            <input type="radio" name="trademark_type" v-model="regData.type" id="J_trademark_type_2" value="2">
+                            <label for="J_trademark_type_2" class="v-radio-label ml-40">文字+图形组合商标</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-row cl" v-if="regData.type!=1">
+                    <label class="row-left required">商标名称：</label>
+                    <div class="row-right">
+                        <input type="text" v-model.trim="regData.name" class="reg-input" placeholder="请输入商标名称" >
+                        <!--<a class="pos-r ml-10" href="javascript:;">
+                            <span class="icon-question"></span>
+                            <div class="manager-tip reg-name-explain">
+                                <p>
+                                    样例一：<br>商标名称应为：西部数码+www.west.cn+图形<br>
+                                    <img src="https://www.west.cn/paas/images/trademark/reg/trademark-name-eg1.jpg"
+                                         alt="西部数码www.west.cn">
+                                </p>
+                                <p>
+                                    样例二：<br>商标名称应为：西部数码+www.west.cn<br>
+                                    <img src="https://www.west.cn/paas/images/trademark/reg/trademark-name-eg2.jpg"
+                                         alt="西部数码www.west.cn">
+                                </p>
+                                <p>
+                                    样例三：<br>商标名称应为：西部数码<br>
+                                    <img src="https://www.west.cn/paas/images/trademark/reg/trademark-name-eg3.jpg" alt="西部数码">
+                                </p>
+                                <p>
+                                    样例四：<br>商标名称应为：图形<br>
+                                    <img src="https://www.west.cn/paas/images/trademark/reg/trademark-name-eg4.jpg" alt="西部数码">
+                                </p>
+                                <i></i>
+                            </div>
+                        </a>-->
+                    </div>
+                </div>
+                <div class="reg-row cl">
+                    <label class="row-left required">商标说明：</label>
+                    <div class="row-right">
+                        <textarea class="reg-input reg-textarea" v-model="regData.desc" placeholder="请输入商标说明"></textarea>
+                        <div class="reg-tip dis-ib va-t">
+                            <i></i>
+                            商标说明即对注册商标的含义说明。<br>
+                            <!--如未填写，我司默认商标无特殊含义。-->
+                            <b>含有汉字的：</b>说明字体，中文为“XX”；
+                            <b>含有拼音的：</b>为中文XXX的拼音；<br>
+                            <b>含有英文的：</b>英文为“XXXX”；
+                            <b>含有图形的：</b>图形设计要素及含义。<br>
+                            <!--<el-popover
+                                    placement="right"
+                                    width="400"
+                                    trigger="click">
+                                <b>含有汉字的：</b>填写字体，<br>
+                                <b>含有拼音的：</b>填写说明拼音的中文，<br>
+                                <b>含有英文的：</b>填写英文的中文含义，<br>
+                                <b>含有图形的：</b>填写图形设计要素及含义。<br>
+                                <span slot="reference" class="va-t">
+                                    <a class="blue-link" href="javascript:;">怎么填？</a>
+                                </span>
+                            </el-popover>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-row cl">
+                    <label class="row-left required">商标图样：</label>
+                    <div class="row-right">
+                        <div class="reg-radio" v-show="regData.type!=0">
+                            <input type="radio" name="trademark_color" v-model="regData.color" value="0" id="J_trademark_color_0">
+                            <label for="J_trademark_color_0" class="v-radio-label">黑白</label>
+                            <input type="radio" name="trademark_color" v-model="regData.color" value="1" id="J_trademark_color_1">
+                            <label for="J_trademark_color_1" class="v-radio-label ml-40">彩色</label>
+                        </div>
+                        <div class="upload-wrap cl">
+                            <label :class="['upload-wrap-img',regData.logo?'show-preview':'']" id="J_trademark_logo">
+                                <i></i>
+                                <span class="img-wrapper">
+                                    <img id="J_logo_preview"/><span class="va-m-assistant"></span>
+                                </span>
+                                <span class="txt">点击上传图片</span>
+                                <span class="hide-f re-choose-upload" data-type="logo">重新上传</span>
+                            </label>
+                            <div class="reg-tip">
+                                <i></i>
+                                建议您使用黑白图样申请商标：<br>
+                                若上传黑白图样，注册后可以根据需要任意更换商标颜色使用；<br>
+                                若上传彩色图样，则注册后只能按照上传图样的颜色进行使用。<br>
+                                我司将按照指定颜色递交至注册局<br>
+                                图片必须是.jpg格式图片、大小在200k以内 <br>
+                                尺寸在400×400至1500×1500之间。
+                            </div>
+                        </div>
+                        <div class="img-upload-op-btns" v-if="regData.type!=1">
+                            <a class="reg-common-btn" href="javascript:;" @click="generateTMLogo">自动生成</a>
+                            <a class="reg-common-btn" href="javascript:;" @click="proxyUploadLogo">手工上传</a>
+                            <a class="pos-r ml-10" href="javascript:;">
+                                <span class="icon-question"></span>
+                                <div class="manager-tip">
+                                    上传的图片格式、大小、像素等要求说明
+                                    <i></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-row cl">
+                    <label :class="['row-left',requireWTS?'required':'']">上传委托书：</label>
+                    <div class="row-right">
+                        <div class="wts-tip" v-if="existSameOrder" style="font-size: 14px;padding-top: 7px;">您两个月内有相同的主体订单，如果为无商标名称版，可<a href="javascript:;" class="blue-link" @click="isShowSameOrdersWindow=true">点击直接使用</a>。</div>
+                        <div class="upload-wrap cl">
+                            <label :class="['upload-wrap-img',(regData.proxyfile=='' && requireWTS===true)?'':'show-preview']" id="J_trademark_wts">
+                                <i></i>
+                                <span class="img-wrapper">
+                                    <img id="J_wts_preview"><span class="va-m-assistant"></span>
+                                </span>
+                                <span class="txt">点击上传图片</span>
+                                <span class="hide-f re-choose-upload" data-type="wts">重新上传</span>
+                            </label>
+                            <div class="upload-example">
+                                <i></i>
+                                <img src="https://www.west.cn/paas/images/trademark/reg/reg-img-small.jpg" alt="委托书样例"/>
+                                <span @click="previewImg('https://www.west.cn/paas/images/trademark/reg/reg-img.jpg?t=202002')"><i></i>放大</span>
+                            </div>
+                            <div class="reg-tip">
+                                <i></i>
+                                说明：委托书已自动生成，您只需要下载核对后打印。以自然人名义申请的需黑笔签名，以企业名字申请的需加盖公章后，扫描彩色件并上传。<a class="blue-link" href="javascript:;" @click="downloadWTS">下载委托书模板</a><br>
+                                图片必须是.jpg格式图片、大小在2MB以内，尺寸在400×400至1500×1500之间。<br>
+                                <span >注意：部分企业的营业执照地址不含省份，导致自动生成的委托书中“委托人地址”缺少省份信息，请下载委托书后补全省份信息再打印，否则商标局将不予审核通过。</span>
+                            </div>
+                        </div>
+                        <div class="img-upload-op-btns">
+                            <!--<template v-if="proxyfile_view!=''">
+                                <a class="reg-common-btn" href="javascript:;" @click="handleWTS(1)">使用申请人模板委托书</a>
+                                <a class="pos-r ml-10" href="javascript:;">
+                                    <span class="icon-question"></span>
+                                    <div class="manager-tip">
+                                        直接使用申请人模板中已上传的委托书，您确认信息无误即可，无需重新上传。
+                                        <i></i>
+                                    </div>
+                                </a>
+                            </template>-->
+                            <a class="reg-common-btn" href="javascript:;" @click="handleWTS(2)">单独上传委托书</a>
+                            <a class="pos-r ml-10" href="javascript:;">
+                                <span class="icon-question"></span>
+                                <div class="manager-tip">
+                                    重新生成新的委托书上传，仅供本次注册使用。
+                                    上传的图片格式、大小、像素等要求说明
+                                    <i></i>
+                                </div>
+                            </a>
+                            <!--<a class="reg-common-btn" href="javascript:;" @click="handleWTS(3)">稍后上传委托书</a>
+                            <a class="pos-r ml-10" href="javascript:;">
+                                <span class="icon-question"></span>
+                                <div class="manager-tip">
+                                    您可提交订单后至“我注册的商标”补全委托书，补全后专员再进行人工审核。
+                                    <i></i>
+                                </div>
+                            </a>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-row cl">
+                    <label class="row-left required">委托书类别：</label>
+                    <div class="row-right">
+                        <div class="reg-radio f-l">
+                            <input type="radio" name="proxyfile_type" v-model="regData.proxyfile_type" id="J_trademark_proxyfile_type_1" :value="1">
+                            <label for="J_trademark_proxyfile_type_1" class="v-radio-label">有名称版</label>
+                            <input type="radio" name="proxyfile_type" v-model="regData.proxyfile_type" id="J_trademark_proxyfile_type_2" :value="2">
+                            <label for="J_trademark_proxyfile_type_2" class="v-radio-label ml-40">无名称版</label>
+                        </div>
+                        <div class="reg-tip" style="top: 6px;">
+                            <i></i>
+                            说明：请根据您当前上传或者选择的委托书照片是否有名称进选择。
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-title"><i class="reg-title-icon sort-icon"></i>商标分类</div>
+
+                <div class="cl reg-type">
+                    <template v-if="mode!='1'">
+                        <div class="recommend-solution font14">
+                            <label>选择推荐方案：</label>
+                            <span>
+                              <el-cascader
+                                      v-model="recommendId"
+                                      :options="recommendOptions"
+                                      placeholder="请选择方案"
+                                      popper-class="recommend-solution-cascader"
+                                      :props="{ expandTrigger: 'click',value:'id' }"
+                                      @change="handleRecommendChange"></el-cascader>
+                            </span>
+                            <el-button @click="confirmRecommend" type="default">添加所选方案</el-button>
+                        </div>
+                        <div class="custom-solution" v-if="customSolutions.length>0">
+                            <label>常用商标类别：</label>
+                            <el-tag
+                                    v-for="(item,index) in customSolutions"
+                                    :key="item.id"
+                                    @click="chooseCustomSolution(item)"
+                                    @close="removeCustomSolutions(item)"
+                                    closable>
+                                {{item.tplName}}
+                            </el-tag>
+                        </div>
+                    </template>
+                    <div class="cl mt-20">
+                        <div class="reg-type-left">
+                            <div class="type-header">
+                                已经选择的商标类别：<p><a class="blue-link mr-10" href="javascript:;"  @click="addCustomSolutions()">保存当前类别</a><a class="blue-link" href="javascript:;" @click="clearAllChooseList(null)">清空</a></p>
+                            </div>
+                            <div class="type-content">
+                                <div class="choose-list-container">
+                                    <ul class="choose-list">
+                                        <li v-for="(item,index) in activeListData" :key="item.keyId" v-if="item._selected_list_.length>0">
+                                            <div :class="['list-bar',item._selected_expanded===true?'expanded':'']" @click="toggleSelectList(item)">
+                                                <i class="switcher"></i>
+                                                <span>第{{item.clsId<10?('0'+item.clsId):item.clsId}}类 {{item.clsName}}</span>
+                                                <span class="desc">
+                                                    <span v-html="rowPriceDetail(item)"></span>
+                                                </span>
+                                                <span class="right-op">
+                                                    <span class="mr-10 count">&yen;{{rowPrice(item)}}</span>
+                                                    <span class="del" @click="clearAllChooseList(item,1)" title="删除"></span>
+                                                </span>
+                                            </div>
+                                            <div class="sub-list" v-for="(item_2,index_2) in item._selected_list_" :key="item_2.keyId" v-if="item_2._selected_list_.length>0">
+                                                <label>{{item_2.GroupNo}}:</label>
+                                                <ul>
+                                                    <li v-for="(item_3,index_3) in item_2._selected_list_" :key="item_3.keyId">
+                                                        {{item_3.CodeId}} {{item_3.CodeName}}
+                                                        <i @click="clearAllChooseList(item_3,3)"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="choose-list-none" v-if="activeListData.length==0">
+                                    <img src="https://www.west.cn/paas/images/trademark/reg/reg-type-img.png" alt="请点击右侧选择商标类别">
+                                    <p>请点击右侧选择商标类别</p>
+                                </div>
+                            </div>
+                            <div class="type-footer">
+                                订单数：<span class="price">{{totalOrder}}个</span>
+                                <p>费用总计：<span class="price font20">&yen;{{totalCount}}元</span></p>
+                            </div>
+                        </div>
+                        <div class="reg-type-right">
+                        <div class="type-search">
+                            <input type="text" class="type-search-input" v-model="keyword" placeholder="请输入关键词，如：肥皂" @keyup.enter="search">
+                            <i @click="search"></i>
+                            <a href="javascript:;" class="blue-link" @click="resetCategoryList(true)">重置</a>
+                        </div>
+                        <div class="type-list-container">
+                            <template v-if="list.length>0">
+                                <tree-item
+                                        :list = "list"
+                                        :active-list-mapping="level_3_selectedMapping"
+                                        :level1-expanded="level_1_expandedNodeMapping"
+                                        :level2-expanded="level_2_expandedNodeMapping"
+                                        :class-click="classClick">
+                                </tree-item>
+                            </template>
+                            <template v-else>
+                                <div class="type-list-none"><img src="https://www.west.cn/paas/images/trademark/reg/reg-type-img.png" alt="无数据"> <p>无数据</p></div>
+                            </template>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="reg-title"><i class="reg-title-icon confirm-icon"></i>订单确认</div>
+                <div class="reg-row cl reg-row-type">
+                    <label class="row-left required">服务类型：</label>
+                    <div class="row-right">
+                        <div class="pt-5">
+                            <template v-if="regData.ordertype==0">
+                                <a :class="['reg-common-btn', regData.ordertype!=0?'reg-common-btn-border':'']" href="javascript:;" @click="regData.ordertype = 0">自助注册</a>
+                                <div class="reg-tip">
+                                    <i></i>
+                                    自助注册：自助在线填写商标注册信息后提交至人工审核，顾问审核通过再付款，可选10个小项，超出收费30元/项。
+                                  
+                                </div>
+                            </template>
+                            <!--<template v-else-if="regData.ordertype==1">
+                                <a :class="['reg-common-btn', regData.ordertype!=1?'reg-common-btn-border':'']" href="javascript:;" @click="regData.ordertype = 1">顾问注册</a>
+                            </template>-->
+                            <template v-else-if="regData.ordertype==2">
+                                <a :class="['reg-common-btn', regData.ordertype!=2?'reg-common-btn-border':'']" href="javascript:;" @click="regData.ordertype = 2">担保注册</a>
+                                <div class="reg-tip">
+                                    <i></i>
+                                    担保注册：自助在线填写商标注册信息后提交至人工审核，顾问审核通过再付款，每单价格980元（可选10个小项），超出收费30元/项。<br>
+                                    &emsp;&emsp;&emsp;&emsp;&emsp;担保注册适合没有商标注册经验的新用户，未注册成功（仅指全部驳回情况）将全额退款。</a>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-row cl reg-row-type" v-if="regData.ordertype==0">
+                    <label class="row-left required">提交方式：</label>
+                    <div class="row-right">
+                        <div class="pt-5">
+                            <a :class="['reg-common-btn', regData.category!=1?'reg-common-btn-border':'']" href="javascript:;" @click="regData.category = 1">人工审核</a>
+                            <a :class="['reg-common-btn ml-20', regData.category!=2?'reg-common-btn-border':'']" href="javascript:;" @click="regData.category = 2">不审核</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="reg-row cl">
+                    <label class="row-left required">订单金额：</label>
+                    <div class="row-right">
+                        <div class="price font24">&yen;{{totalPrice}}元</div>
+                        <div class="agreement-wrapper">
+                            <input type="checkbox" class="hide" v-model="agree" value="1" id="J_agree_ck">
+                            <label class="v-ck-label" for="J_agree_ck">我已阅读、理解并接受商标服务协议</label>
+    
+                        </div>
+                        <div class="mt-10">
+                            <template v-if="regData.category==1">
+                                <a class="reg-common-btn reg-submit-btn" href="javascript:;" @click="regSubmit(1)">提交人工审核</a>
+                            </template>
+                            <template v-else-if="regData.category==2">
+                                <a class="reg-common-btn reg-submit-btn" href="javascript:;" @click="riskTipVisible=true">直接提交至注册局</a>
+                            </template>
+                            <!--<span class="reg-submit-tip"><i></i>顾问审核通过后在付款，需要1~2个工作日</span>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--预览图片-->
+            <el-image
+                    style="width:0;height:0;"
+                    :src="previewImgPath"
+                    ref="previewComp"
+                    :preview-src-list="previewImgList">
+            </el-image>
+            <!--直接提交至商标局，风险提示-->
+            <el-dialog title="风险提示" :close-on-click-modal="false" :visible.sync="riskTipVisible" width="600px" :append-to-body="true">
+                <div class="risk-tip cl">
+                    <img class="f-l ml-30" src="https://www.west.cn/paas/images/trademark/risk-tip-img.png" alt="风险提示">
+                    <div class="f-l font14 ml-30">
+                        1. 该操作为放弃审核直接提交到商标局，新人不建议选择；<br>
+                        2. 直提商标局需要材料完整无误，必须上传委托书；<br>
+                        3. 确认此操作并已知相关风险，提交商标局后不退款。<br>
+                    </div>
+                </div>
+                <div slot="footer" class="dialog-footer">
+                    <el-button @click="riskTipVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="regSubmit(2)">确认并提交至商标局</el-button>
+                </div>
+            </el-dialog>
+            <!--委托书上传历史-->
+            <el-dialog title="委托书上传历史" :close-on-press-escape="false" :close-on-click-modal="false" :visible.sync="isShowSameOrdersWindow" width="800px" :append-to-body="true">
+                <div class="font14">
+                    1. 请确认委托书内容，无内容版才可重复使用，以免审核失败。<br>
+                </div>
+                <el-table
+                        :data="tmordersSpec"
+                        header-cell-class-name="vc-table-header"
+                        cell-class-name="vc-table-cell"
+                        style="width: 100%"
+                        border
+                        tooltip-effect="light">
+                    <el-table-column
+                            label="#"
+                            align="center"
+                            width="60">
+                        <template slot-scope="scope">
+                            <el-radio v-model="historySelection" :label="scope.$index">&nbsp;</el-radio>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                            prop="cid_name"
+                            label="商标信息"
+                            show-overflow-tooltip>
+                    </el-table-column>
+                    <el-table-column
+                            label="下单时间"
+                            min-width="100"
+                            show-overflow-tooltip>
+                        <template slot-scope="scope">
+                            {{scope.row.addtime.split('.')[0]}}
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                            label="委托书"
+                            min-width="50">
+                        <template slot-scope="scope">
+                            <el-image
+                                    style="width: 100px; height: 100px"
+                                    :src="scope.row.proxyfile"
+                                    :preview-src-list="[scope.row.proxyfile]">
+                            </el-image>
+                        </template>
+                    </el-table-column>
+                </el-table>
+                <div slot="footer" class="dialog-footer">
+                    <el-button @click="isShowSameOrdersWindow = false">取 消</el-button>
+                    <el-button type="primary" @click="confirmSelectHistoryWTS">确定选择</el-button>
+                </div>
+            </el-dialog>
+        </div>
+    </div>
+    <script type="text/html" id="J_treeItemTpl">
+        <ul>
+            <li v-for="(item,index) in list" :key="item.keyId">
+                <div :class="['tm-tree-bar', (item._loading_=== true ? 'loading' : ''),(item.level== 2 ? 'leaf' : ''), (activeListMapping[item.key]? 'active' : '')]" :abc-key="item.key" @click="classClick(item)">
+                    <template v-if="item.level==0">
+                        <i :class="['switcher', level1Expanded[item.key]? 'expanded' : '']"></i>
+                        <span>{{item.clsId < 10? '0' + item.clsId : item.clsId}}&nbsp;{{item.clsName}}</span>
+                    </template>
+                    <template v-if="item.level==1">
+                        <i :class="['switcher', level2Expanded[item.key]? 'expanded' : '']"></i>
+                        <span>{{item.GroupNo}}&nbsp;{{item.GroupName}}</span>
+                    </template>
+                    <template v-if="item.level==2">
+                        <i class="switcher"></i>
+                        <span>{{item.CodeId}}&nbsp;{{item.CodeName}}</span>
+                    </template>
+                </div>
+                <tree-item
+                        v-if="( (item.level==0&&level1Expanded[item.key]) || (item.level==1&&level2Expanded[item.key])  ) && item.children && item.children.length > 0"
+                        :list="item.children"
+                        :active-list-mapping="activeListMapping"
+                        :level1-expanded="level1Expanded"
+                        :level2-expanded="level2Expanded"
+                        :class-click="classClick"
+                >
+                </tree-item>
+            </li>
+        </ul>
+    </script>
+    <script type="text/javascript">
+        var loginsuccess = "";
+    </script>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.js"></script>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.config.js?t=20200518_095711"></script>
+<script type="text/javascript" src="/Template/Tpl_2016/jscripts/lib/require/manage-tm.js?t=1414"></script>
+
+{#bottom.html}
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
+<meta name="description"
+  content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
+<meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
+<link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
+<link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
+<link rel="stylesheet" href="/template/Tpl_2016/css/miniprogram.css">
+<link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
+<link rel="stylesheet" href="/Template/Tpl_2016/jscripts/lib/element-ui/@2.13.0/index.css">
+<link rel="stylesheet" href="/Template/Tpl_2016/jscripts/page/user/trademark/manage-proposer.css">
+<script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
+<script src="/Template/Tpl_2016/jscripts/lib/babel-polyfill/polyfill.min.js"></script>
+</head> 
+{#top.html}
+<!-- 内容区域 开始 -->
+<div class="ManagerRightShow" v-cloak  id="J_baseContainer">
+    <div class="module-title">申请人模板管理</div>
+    <div class="module-container">
+        <el-form :inline="true" :model="proposerFormData" class="search-form" @submit.native.prevent>
+            <el-row :gutter="20">
+                <el-col :span="24">
+                    <el-form-item class="search-input">
+                        <el-input v-model="proposerFormData.name" placeholder="请输入申请人名称" clearable></el-input>
+                    </el-form-item>
+                    <el-form-item class="search-btn">
+                        <button class="manager-btn blue-btn m-btn" @click="getTMApplicantList">查询</button>
+                        <a class="manager-btn m-btn" href="/paas/trademark/manage-proposer/create">创建申请人模板</a>
+                    </el-form-item>
+                </el-col>
+            </el-row>
+            <el-row :gutter="20">
+                <el-col :span="24">
+                    <el-form-item label="申请人类型：" class="cv-input-small">
+                        <el-select v-model="proposerFormData.type" placeholder="全部">
+                            <el-option label="全部" value=""></el-option>
+                            <el-option :label="typeDescMapping[0]" value="0"></el-option>
+                            <el-option :label="typeDescMapping[1]" value="1"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="商标状态：" class="cv-input-small">
+                        <el-select v-model="proposerFormData.status" placeholder="全部">
+                            <el-option label="全部" value=""></el-option>
+                            <el-option :label="statusDescMapping[0]" value="0"></el-option>
+                            <el-option :label="statusDescMapping[1]" value="1"></el-option>
+                            <el-option :label="statusDescMapping[2]" value="2"></el-option>
+                        </el-select>
+                    </el-form-item>
+                </el-col>
+            </el-row>
+        </el-form>
+    </div>
+    <el-table
+            ref="proposerTable"
+            :data="proposerTableData"
+            header-cell-class-name="vc-table-header"
+            cell-class-name="vc-table-cell"
+            style="width: 100%"
+            border
+            tooltip-effect="light">
+        <el-table-column
+                type="index"
+                width="50"
+                label="序号">
+        </el-table-column>
+        <el-table-column
+                prop="applicant"
+                label="申请人姓名"
+                show-overflow-tooltip>
+        </el-table-column>
+        <el-table-column
+                prop="item_name"
+                label="申请人模板名称"
+                show-overflow-tooltip>
+        </el-table-column>
+        <el-table-column
+                label="类型"
+                min-width="100"
+                show-overflow-tooltip>
+            <template slot-scope="scope">
+                {{typeDescMapping[scope.row.type]}}
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="状态"
+                min-width="50">
+            <template slot-scope="scope">
+                <template v-if="scope.row.status==0">{{statusDescMapping[0]}}</template>
+                <template v-else-if="scope.row.status==1">{{statusDescMapping[1]}}</template>
+                <template v-else>
+                    {{statusDescMapping[2]}}
+                    <el-tooltip class="item" effect="light" :content="scope.row.remark" placement="bottom-start">
+                        <i class="font16 el-icon-info" style="color: #999"></i>
+                    </el-tooltip>
+                </template>
+            </template>
+        </el-table-column>
+        <el-table-column
+                label="操作"
+                min-width="100">
+            <template slot-scope="scope">
+               <!-- <a class="table-btn" @click="modifyProxyFile(scope.row)" href="javascript:;">
+                    <template v-if="scope.row.proxyfile==''">上传委托书</template>
+                    <template v-else>修改委托书</template>
+                </a>-->
+                <template v-if="scope.row.status!=1">
+                    <a class="table-btn" :href="'/paas/trademark/manage-proposer/create' + '?id=' + scope.row.id + '&mode=1'">修改</a>
+                </template>
+                <template v-else>
+                    <a class="table-btn" :href="'/paas/trademark/manage-proposer/create' + '?id=' + scope.row.id + '&mode=2'">详情</a>
+                </template>
+                <a class="table-btn" @click="delApplicant(scope.row)" href="javascript:;">删除</a>
+            </template>
+        </el-table-column>
+    </el-table>
+    <div class="text-c mt-20">
+        <el-pagination
+                @current-change="handleCurrentChange"
+                :current-page="page"
+                :page-size="pageSize"
+                layout="prev, pager, next, total, jumper"
+                :total="totalCount">
+        </el-pagination>
+    </div>
+    <el-dialog :title="modifyProxyFileForm.proxyfile_preview==''? '上传委托书':'修改委托书'" :close-on-click-modal="false" :visible.sync="modifyProxyFileFormVisible" width="800px" :append-to-body='true'>
+        <el-form :model="modifyProxyFileForm" label-width="216px">
+            <div class="upload-wrap-tip">
+                据商标局简化商标申请通知，同一申请人办理多件商标注册申请，可使用不填写商标名称的代理书，若您需要注册多个商标，建议上传不含商标名称版代理委托书。
+                <p>注意：委托书是依据申请人模板生成，下载后请勿随意修改。</p>
+            </div>
+            <el-form-item label="不含商标名称代理委托书：" >
+                <div class="upload-wrap cl">
+                    <label :class="['upload-wrap-img', modifyProxyFileForm.proxyfile_preview!=''?'show-preview':'']"  id="J_trademark_wts">
+                        <i></i>
+                        <span class="img-wrapper">
+                            <img id="J_proxyfile_preview" ><span class="va-m-assistant"></span>
+                        </span>
+                        <span class="txt">点击上传不含名称委托书</span>
+                    </label>
+                    <div class="upload-example" @click="previewImg" preview-src="/paas/images/trademark/reg/reg-img.jpg" >
+                        <i></i>
+                        <img src="/paas/images/trademark/reg/reg-img-small.jpg" alt="样例" >
+                        <span><i></i>放大</span>
+                    </div>
+                </div>
+                <a v-show="modifyProxyFileForm.proxyfile_preview_button!=''" class="blue-link mr-50" href="javascript:;" @click="previewImg" :preview-src="modifyProxyFileForm.proxyfile_preview_button">查看已上传委托书</a>
+                <a class="blue-link" :href="'/paas/trademark/manage-proposer/draw?id=' + modifyProxyFileForm.id " target="_blank">下载委托书模板(不含商标名称)</a>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="modifyProxyFileFormVisible = false">取 消</el-button>
+            <el-button type="primary" @click="modifyProxyFileFormSubmit">确 定</el-button>
+        </div>
+    </el-dialog>
+    <!--预览弹层-->
+    <el-dialog :visible.sync="isShowPreview" :append-to-body="true" width="1000px">
+        <div class="text-c">
+            <img :src="imgPath" style="max-width: 100%;">
+        </div>
+    </el-dialog>
+</div>
+</div>
+</div>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.js"></script>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.config.js?t=20200518_095711"></script>
+<script type="text/javascript" src="/Template/Tpl_2016/jscripts/lib/require/manage-proposer.js"></script>
+
+{#bottom.html}
+
+</body>
+</html>

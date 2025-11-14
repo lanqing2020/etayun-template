@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
+    <meta name="description"
+          content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
+    <meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/mail.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/css/sites/trademark.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/miniprogram.css">
+</head>
+<body class="min990">
+{#top.html}
+
+<!-- banner 结束 -->
+<div class="container">
+    <div id="J_containerContent">
+        <div class="wide1190 pt-60">
+            <form class="trademark-search-form J_trademarkSearchForm" id="J_trademarkSearchForm" method="get" onclick="return false">
+                <ul class="wjf-ui-tab cl" id="J_trademarkTab">
+                    <li class="first"><a class="active" href="javascript:;" data-target="J_trademarkTabJQ">商标精确查询</a></li>
+                    <li><a class="" href="javascript:;" data-target="J_trademarkTabJS">商标近似查询</a></li>
+                </ul>
+                <div class="wjf-ui-tab-content active">
+                    <!--  <input type="hidden" name="fuzzy" value="1">-->
+                    <div class="search-container"  id="J_trademarkTabJQ">
+                        <div class="search-wrapper">
+                            <span class="trademark-type wjf-ui-select-wrapper">
+                                <span class="wjf-ui-select">
+                                    <span class="selected-text">商标名称</span>
+                                    <input type="hidden" name="type" value="name" id="J_hidden_type" autocomplete="off">
+                                    <i class="trangle-arrow"></i>
+                                </span>
+                                <ul class="wjf-ui-select-container">
+                                    <li class="item first selected" data-value="name" data-desc="商标名称">商标名称</li>
+                                    <li class="item" data-value="user" data-desc="注册人">注册人</li>
+                                    <li class="item" data-value="agent" data-desc="代理人">代理人</li>
+                                    <li class="item last" data-value="tmno" data-desc="注册号">注册号</li>
+                                </ul>
+                            </span>
+                            <button class="search-btn" id="J_searchBtn">立即查询</button>
+                            <div class="input-wrapper">
+                                <input type="text" name="keyword" class="common-input" id="J_keyWordPlaceholder" value="" placeholder="请输入您想要注册的商标名称">
+                            </div>
+                        </div>
+                        <a class="blue-link category-link" href="http://faq.myhostadmin.net/paas/trademark/category/">《2020版类似商品和服务区分表》</a>
+                    </div>
+                    <div class=" mhcx-conditions">
+                        <div class="module-item module-condition" style="">
+                        <div class="title">查询条件</div>
+                        <div class="condition-items">
+                            <div class="c-item"><label>商标分类：</label>
+                                <ul class="collapsed item-sort">
+                                    <li><span class="condition selected">全部</span></li>
+                                    <li><span class="condition">01&nbsp;化学原料</span></li>
+                                    <li><span class="condition">02&nbsp;颜料油漆</span></li>
+                                    <li><span class="condition">03&nbsp;日化用品</span></li>
+                                    <li><span class="condition">04&nbsp;燃料油脂</span></li>
+                                    <li><span class="condition">05&nbsp;医药</span></li>
+                                    <li><span class="condition">06&nbsp;金属材料</span></li>
+                                    <li><span class="condition">07&nbsp;机械设备</span></li>
+                                    <li><span class="condition">08&nbsp;手工器械</span></li>
+                                    <li><span class="condition">09&nbsp;科学仪器</span></li>
+                                    <li><span class="condition">10&nbsp;医疗器械</span></li>
+                                    <li><span class="condition">11&nbsp;灯具空调</span></li>
+                                    <li><span class="condition">12&nbsp;运输工具</span></li>
+                                    <li><span class="condition">13&nbsp;军火烟火</span></li>
+                                    <li><span class="condition">14&nbsp;珠宝钟表</span></li>
+                                    <li><span class="condition">15&nbsp;乐器</span></li>
+                                    <li><span class="condition">16&nbsp;办公用品</span></li>
+                                    <li><span class="condition">17&nbsp;橡胶制品</span></li>
+                                    <li><span class="condition">18&nbsp;皮革皮具</span></li>
+                                    <li><span class="condition">19&nbsp;建筑材料</span></li>
+                                    <li><span class="condition">20&nbsp;家具</span></li>
+                                    <li><span class="condition">21&nbsp;厨房洁具</span></li>
+                                    <li><span class="condition">22&nbsp;绳网袋蓬</span></li>
+                                    <li><span class="condition">23&nbsp;纱线丝</span></li>
+                                    <li><span class="condition">24&nbsp;布料床单</span></li>
+                                    <li><span class="condition">25&nbsp;服装鞋帽</span></li>
+                                    <li><span class="condition">26&nbsp;纽扣拉链</span></li>
+                                    <li><span class="condition">27&nbsp;地毯席垫</span></li>
+                                    <li><span class="condition">28&nbsp;健身器材</span></li>
+                                    <li><span class="condition">29&nbsp;食品</span></li>
+                                    <li><span class="condition">30&nbsp;方便食品</span></li>
+                                    <li><span class="condition">31&nbsp;饲料种籽</span></li>
+                                    <li><span class="condition">32&nbsp;啤酒饮料</span></li>
+                                    <li><span class="condition">33&nbsp;酒</span></li>
+                                    <li><span class="condition">34&nbsp;烟草烟具</span></li>
+                                    <li><span class="condition">35&nbsp;广告销售</span></li>
+                                    <li><span class="condition">36&nbsp;金融物管</span></li>
+                                    <li><span class="condition">37&nbsp;建筑修理</span></li>
+                                    <li><span class="condition">38&nbsp;通讯服务</span></li>
+                                    <li><span class="condition">39&nbsp;运输贮藏</span></li>
+                                    <li><span class="condition">40&nbsp;材料加工</span></li>
+                                    <li><span class="condition">41&nbsp;教育娱乐</span></li>
+                                    <li><span class="condition">42&nbsp;技术服务</span></li>
+                                    <li><span class="condition">43&nbsp;餐饮住宿</span></li>
+                                    <li><span class="condition">44&nbsp;医疗园艺</span></li>
+                                    <li><span class="condition">45&nbsp;社会服务</span></li>
+                                </ul>
+                                <span class="op-btn more" id="J_showMore">展开</span>
+                            </div>
+                            <div class="c-item"><label>商标状态：</label>
+                                <ul>
+                                    <li><span class="condition selected">全部</span></li>
+                                    <li><span class="condition">待审中</span></li>
+                                    <li><span class="condition">已驳回</span></li>
+                                    <li><span class="condition">已初审</span></li>
+                                    <li><span class="condition">已注册</span></li>
+                                    <li><span class="condition">已销亡</span></li>
+                                </ul>
+                            </div> <!---->
+                        </div>
+                    </div> <!---->
+                    </div>
+                </div>
+                <div class="wjf-ui-tab-content" id="J_trademarkTabJS">
+                    <div class="jscx-container" style="">
+                        <div class="search-wrapper">
+                            <div class="header">
+                                <a href="http://faq.myhostadmin.net/paas/doc/tm/商标审查标准（2019版）.pdf" target="_blank">《商标审查标准（2019版）》</a>
+                                <div class="title">近似查询条件</div>
+                            </div>
+                        </div>
+                        <div class="module-condition">
+                            <div class="condition-items">
+                                <div class="c-item required cl">
+                                    <label>商标名称：</label>
+                                    <div class="trademark-name">
+                                        <div class="manager-textarea el-textarea el-input--suffix">
+                                            <textarea autocomplete="off" placeholder="请输入您想要查询的商标名称" class="el-textarea__inner"></textarea>
+                                        </div>
+                                        <button class="common-btn blue-btn va-t">免费查询</button>
+                                        <button class="common-btn dark-btn va-t">重置条件</button>
+                                    </div>
+                                </div>
+                                <div class="c-item"><label>查询方式：</label>
+                                    <div><select name="jscx_type" class="select m-select">
+                                        <option value="cn">中文</option>
+                                        <option value="en">英文</option>
+                                    </select></div>
+                                </div>
+                                <div class="c-item"><label>查询类型：</label>
+                                    <div class="search-ops">
+                                        <input type="checkbox" name="op" id="op_0" class="common-ck" value="same"><label for="op_0" class="">完全相同</label>
+                                        <input type="checkbox" name="op" id="op_1" class="common-ck" value="part_of_the_same" checked><label for="op_1" class="">部分相同</label>
+                                        <input type="checkbox" name="op" id="op_2" class="common-ck" value="add_substr_anywhere"><label for="op_2" class="">加字符</label>
+                                        <input type="checkbox" name="op" id="op_3" class="common-ck" value="change_substr"><label for="op_3" class="">变字符</label>
+                                        <input type="checkbox" name="op" id="op_4" class="common-ck" value="minux_substr"><label for="op_4" class="">减字符</label>
+                                        <input type="checkbox" name="op" id="op_5" class="common-ck" value="included_in_the_others"><label for="op_5" class="">包含在其它商标中</label>
+                                        <input type="checkbox" name="op" id="op_6" class="common-ck" value="included_others"><label for="op_6" class="">内含其它商标</label>
+                                        <input type="checkbox" name="op" id="op_7" class="common-ck" value="change_order"><label for="op_7" class="">换序</label>
+                                        <input type="checkbox" name="op" id="op_8" class="common-ck" value="reverse_order"><label for="op_8" class="">逆序</label>
+                                        <input type="checkbox" name="op" id="op_9" class="common-ck" value="sounds_same"><label for="op_9" class="">读音相同</label>
+                                    </div>
+                                </div>
+                                <div class="c-item"><label>商标分类：</label>
+                                    <ul class="trademark-cate-list">
+                                        <li><span class="condition single">01&nbsp;化学原料</span></li>
+                                        <li><span class="condition single">02&nbsp;颜料油漆</span></li>
+                                        <li><span class="condition single">03&nbsp;日化用品</span></li>
+                                        <li><span class="condition single">04&nbsp;燃料油脂</span></li>
+                                        <li><span class="condition single">05&nbsp;医药</span></li>
+                                        <li><span class="condition single">06&nbsp;金属材料</span></li>
+                                        <li><span class="condition single">07&nbsp;机械设备</span></li>
+                                        <li><span class="condition single">08&nbsp;手工器械</span></li>
+                                        <li><span class="condition single">09&nbsp;科学仪器</span></li>
+                                        <li><span class="condition single">10&nbsp;医疗器械</span></li>
+                                        <li><span class="condition single">11&nbsp;灯具空调</span></li>
+                                        <li><span class="condition single">12&nbsp;运输工具</span></li>
+                                        <li><span class="condition single">13&nbsp;军火烟火</span></li>
+                                        <li><span class="condition single">14&nbsp;珠宝钟表</span></li>
+                                        <li><span class="condition single">15&nbsp;乐器</span></li>
+                                        <li><span class="condition single">16&nbsp;办公用品</span></li>
+                                        <li><span class="condition single">17&nbsp;橡胶制品</span></li>
+                                        <li><span class="condition single">18&nbsp;皮革皮具</span></li>
+                                        <li><span class="condition single">19&nbsp;建筑材料</span></li>
+                                        <li><span class="condition single">20&nbsp;家具</span></li>
+                                        <li><span class="condition single">21&nbsp;厨房洁具</span></li>
+                                        <li><span class="condition single">22&nbsp;绳网袋蓬</span></li>
+                                        <li><span class="condition single">23&nbsp;纱线丝</span></li>
+                                        <li><span class="condition single">24&nbsp;布料床单</span></li>
+                                        <li><span class="condition single">25&nbsp;服装鞋帽</span></li>
+                                        <li><span class="condition single">26&nbsp;纽扣拉链</span></li>
+                                        <li><span class="condition single">27&nbsp;地毯席垫</span></li>
+                                        <li><span class="condition single">28&nbsp;健身器材</span></li>
+                                        <li><span class="condition single">29&nbsp;食品</span></li>
+                                        <li><span class="condition single">30&nbsp;方便食品</span></li>
+                                        <li><span class="condition single">31&nbsp;饲料种籽</span></li>
+                                        <li><span class="condition single">32&nbsp;啤酒饮料</span></li>
+                                        <li><span class="condition single">33&nbsp;酒</span></li>
+                                        <li><span class="condition single">34&nbsp;烟草烟具</span></li>
+                                        <li><span class="condition single">35&nbsp;广告销售</span></li>
+                                        <li><span class="condition single">36&nbsp;金融物管</span></li>
+                                        <li><span class="condition single">37&nbsp;建筑修理</span></li>
+                                        <li><span class="condition single">38&nbsp;通讯服务</span></li>
+                                        <li><span class="condition single">39&nbsp;运输贮藏</span></li>
+                                        <li><span class="condition single">40&nbsp;材料加工</span></li>
+                                        <li><span class="condition single">41&nbsp;教育娱乐</span></li>
+                                        <li><span class="condition single">42&nbsp;技术服务</span></li>
+                                        <li><span class="condition single">43&nbsp;餐饮住宿</span></li>
+                                        <li><span class="condition single">44&nbsp;医疗园艺</span></li>
+                                        <li><span class="condition single">45&nbsp;社会服务</span></li>
+                                    </ul>
+                                </div>
+                                <div class="c-item"><label>商标状态：</label>
+                                    <ul>
+                                        <li><span class="condition selected">全部</span></li>
+                                        <li><span class="condition">待审中</span></li>
+                                        <li><span class="condition">已驳回</span></li>
+                                        <li><span class="condition">已初审</span></li>
+                                        <li><span class="condition">已注册</span></li>
+                                        <li><span class="condition">已销亡</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="wide1190">
+                <div class="module-item module-results">
+                    <div>
+                        <div class="header">
+                                    <span class="simple-pagination" style="">
+                                        共<span class="highlight-number">11</span>个搜索结果
+                                        <i class="pre-btn"></i> <span class="highlight-number">1</span>/2
+                                        <i class="next-btn"></i>
+                                    </span>
+                            <p>商标检索结果仅供参考，不作为商标能否注册的法律依据，具体以商标局官网查询为准。</p></div> <!---->
+                        <div class="trademark-item-list">
+                            <a href="/paas/trademark/search/detail?id=48579347" target="_blank" class="trademark-item cl">
+                                <div class="trademark-icon">
+                                    <img src="https://realname.vhostgo.com/file/3wZk%2FzNIDyO%2FDxi3ZwkQJ6pu0f6swWBDeTJlmtjyldk0WIHXfUBQmUP6OwCWb6X%2F%2BgxVsp9QhsjR5rxTT9FxssTQ50JZR6M1ZeO%2BXazHF07fl1gRBU7KZZES6aFIFBvX7mjZEqAHrNMJE5GBMcAd8Q%3D%3D" alt="西部数码">
+                                </div>
+                                <div class="trademark-detail">
+                                    <div class="title">
+                                        西部数码
+                                        <!----> <span class="reg-status refused">已驳回</span> <!----> <!----> <!---->
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div title="成都西维数码科技有限公司" class="item"><label>申请人：</label> <span
+                                                    class="highlight">成都西维数码科技有限公司</span></div>
+                                            <div class="item"><label>注册号：</label>11078924</div>
+                                            <div class="item"><label>申请日期：</label>2012-06-15</div>
+                                        </li>
+                                        <li>
+                                            <div class="item"><label>商标分类：</label>第35类 广告销售</div>
+                                            <div class="item"><label>初审公告号：</label>--</div>
+                                            <div class="item"><label>初审公告日期：</label>--</div>
+                                        </li>
+                                        <li>
+                                            <div title="成都市中德知识产权代理有限公司" class="item"><label>代理机构：</label>成都市中德知识产权代理有限公司
+                                            </div>
+                                            <div class="item"><label>注册公告号：</label>--</div>
+                                            <div class="item"><label>注册公告日期：</label>--</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="trademark-register cl">
+            <div class="wide1190 module-item ">
+                <div class="module-intro">
+                    <h2 class="title">商标注册</h2>
+                    <p class="desc">树立品牌意识，维护品牌形象，保护品牌权益，助力品牌营销。</p>
+                </div>
+                <div class="cards cl">
+                    <div class="card active">
+                        <div class="c-header ch-1">
+                            <h3>自助注册</h3>
+                            <p>自助提交 便捷快速</p>
+                            <i class="c-header-icon c-header-icon1"></i>
+                        </div>
+                        <div class="c-content">
+                            <ul class="c-body">
+                                <li>在线自助提交 方便快捷</li>
+                                <li>顾问评估分析 专业可靠</li>
+                                <li>进度实时同步 全程掌控</li>
+                            </ul>
+                            <div class="c-footer">
+                                <!--<span class="redColor">价格</span>-->
+                                <a href="javascript:;" class="trade-btn">详询客服</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="c-header ch-2">
+                            <h3>顾问注册</h3>
+                            <p>优质顾问 全程代办</p>
+                            <i class="c-header-icon c-header-icon2"></i>
+                        </div>
+                        <div class="c-content">
+                            <ul class="c-body">
+                                <li>提供优质顾问一对一服务</li>
+                                <li>整理填报资料，全程代办</li>
+                                <li>综合评估分析，规避风险</li>
+                            </ul>
+                            <div class="c-footer">
+                                <!--<span class="redColor">价格</span>-->
+                                <a href="javascript:;" class="trade-btn">详询客服</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="c-header ch-3">
+                            <h3>担保注册</h3>
+                            <p>注册失败 全额退款</p>
+                            <i class="c-header-icon c-header-icon3"></i>
+                        </div>
+                        <div class="c-content">
+                            <ul class="c-body">
+                                <li>规避盲查、主观判断等注册风险</li>
+                                <li>层层把控，有效降低风险</li>
+                                <!--<li>&nbsp;</li>-->
+                            </ul>
+                            <div class="c-footer">
+                                <!--<span class="redColor">价格</span>-->
+                                <a href="javascript:;" class="trade-btn">详询客服</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="module-item trademark-flow">
+            <div class="module-intro mt-50">
+                <h2 class="title">商标注册流程</h2>
+                <!--<p class="desc">树立品牌意识，维护品牌形象，保护品牌权益，助力品牌营销</p>-->
+            </div>
+            <div class="wide1190">
+                <img class="flow-img" src="http://faq.myhostadmin.net/paas/images/trademark/flow-img.png" alt="商标注册流程">
+            </div>
+        </div>
+        <div class="module-item trademark-op">
+            <div class="module-intro pt-50 white">
+                <h2 class="title">商标延伸服务</h2>
+                <p class="desc">为商标注册障碍扫除、后续维护，提供全面解决方案</p>
+            </div>
+            <!--<div class="text-c" id="J_displayTabs">
+                <ul class="tabs" id="J_trademark_op_tabs">
+                    <li data-grp="1" class="active"  data-target="#J_trademark_op_1"><a href="javascript:;" >商标信息变更</a></li>
+                    <li data-grp="0" data-target="#J_trademark_op_0"><a href="javascript:;">商标争议服务</a></li>
+                    <li data-grp="2" data-target="#J_trademark_op_2"><a href="javascript:;" >其他服务</a></li>
+                </ul>
+            </div>-->
+            <!--<div id="J_trademark_op_1" class="tab-content active"></div>
+            <div id="J_trademark_op_0" class="tab-content"></div>
+            <div id="J_trademark_op_2" class="tab-content"></div>-->
+            <!--<a id="J_displayTabsBtn" href="<?/*= ResourceLoader::adapterUrlPath("/paas/trademark/default/more") */?>" class="more-service" title="查看更多服务">查看更多服务&gt;</a>-->
+            <div class="wide1190" id="J_trademark_op_list">
+
+            </div>
+        </div>
+        <!--<div class="contact-module">
+            <p><span>优质顾问为您提供最合适的商标注册解决方案</span></p>
+            <div class="dc-qq">
+                <a href="tencent://message/?uin=2941719435&amp;Site=west.cn&amp;Menu=yes" title="点击咨询" rel="nofollow"><i></i>QQ在线咨询</a>
+            </div>
+            <div class="dc-tel">
+                <i></i>电话咨询：028-62778877 转 8350 （工作日9:00 - 17:45）
+            </div>
+        </div>-->
+    </div>
+    <script type="text/html" id="J_trademark_op_tpl">
+        <div class="text-c">
+            <div class="cards">
+                {{if list!=''}}
+                {{each list as item index}}
+                <div class="card">
+                    <div class="c-header">
+                        <img class="flow-img" src="{{item.icon}}" alt="{{item.name}}">
+                        <h3>{{item.name}}</h3>
+                    </div>
+                    <div class="c-content">
+                        <div class="c-footer">
+                            <span class="redColor mt-30 dis-b">价格详询客服</span>
+                            <a href="/paas/trademark/delegate/svcdetail?id={{item.id}}" target="_blank"
+                               class="trade-btn">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="no-data">抱歉，暂无数据</div>
+                {{/if}}
+            </div>
+        </div>
+    </script>
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery.superslide.2.1.1.x.js"></script>
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/wjf-1.0.0.js"></script>
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/mail2016.js"></script>
+    <script type="text/javascript" src="/jscripts/template.js"></script>
+    <script type="text/javascript" src="/services/sites/ajax_config.asp"></script>
+    <!-- <script type="text/javascript">window.PAGE_CONFIG = {};
+     window.BASE_AJAX_PARAM = {"_csrf-frontend": "bqwz0yaw-WnIiuiZRdQnWQD2a-ohrf5w4hA0hdZ90ZsH20a_Tvm8KKL5n6h8pn0IMIZci1v-rB-QKUPN4Evo-Q=="};</script>
+     <script type="text/javascript">window.PAGE_CONFIG.MOCK_PRO = true;
+     window.PAGE_CONFIG.DEV = true;
+     window.PAGE_CONFIG.BASE_DEV_SERVER_ROOT = 'http://faq.myhostadmin.net/paas/';
+     window.PAGE_CONFIG.BASE_SERVER_ROOT = '/paas/';</script>
+     <script src="http://faq.myhostadmin.net/paas/dist/script/lib/require/require.js"></script>
+     <script src="http://faq.myhostadmin.net/paas/dist/script/modules/common/require.config.js?t=20200331_093918"></script>
+     <script type="text/javascript" src="http://faq.myhostadmin.net/paas/dist/script/modules/common/common-dev.js?_t=20200331_093918"></script>
+     <script type="text/javascript" src="http://faq.myhostadmin.net/paas/dist/script/page/user/trademark/delegate/index.js?_t=20200331_093918"></script>
+     <script type="text/javascript" src="http://faq.myhostadmin.net/js2016/lib/wjf/js/wjf-2.0.0.js?_t=20200331_093918"></script>
+     <script type="text/javascript" async="" src="http://faq.myhostadmin.net/js2016/common/menu.js?ver=2016071303" charset="gbk"></script>
+     <script type="text/javascript"  async="" data-requirecontext="_" data-requiremodule="template" src="http://faq.myhostadmin.net/js2016/root/template.js?_t=20200331_093918"></script>
+     <script type="text/javascript" async="" data-requirecontext="_" data-requiremodule="lib/require/css" src="http://faq.myhostadmin.net/paas/dist/script/lib/require/css.js?_t=20200331_093918"></script>
+     <link type="text/css" rel="stylesheet" href="http://faq.myhostadmin.net/js2016/lib/layer/skin/layer.css?_t=20200331_093918">
+     <script type="text/javascript" async="" data-requirecontext="_" data-requiremodule="layer" src="http://faq.myhostadmin.net/js2016/lib/layer/layer.js?_t=20200331_093918"></script>-->
+    <script src="http://faq.myhostadmin.net/js2016/lib/layer/layer.min.js"></script>
+    <script type="text/html" id="J_codeWrapTpl">
+        <div>
+            验证码：<input type="text" class="common-input"><button class="g-common-btn g-blue-btn ml-10">获取验证码</button>
+        </div>
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('body').on('mouseover', '.trademark-register .card', function () {
+                $(this).addClass('active').siblings('.card').removeClass('active');
+            });
+
+            $('body').on('click', '.wjf-ui-select-container .item', function () {
+                $(this).addClass('selected').siblings('li').removeClass('selected');
+                $('.selected-text').text($(this).attr('data-desc'));
+                $("#J_hidden_type").val($(this).attr('data-value'));
+                $('#J_keyWordPlaceholder').attr('placeholder', '请输入请想要注册的' + $(this).attr('data-desc'))
+            });
+            $('body').on('click', '.wjf-ui-select', function () {
+                toggleSelectList(true);
+                return false;
+            });
+
+            function toggleSelectList(flag) {
+                if (flag != null) {
+                    $(".wjf-ui-select-container,.wjf-ui-select").toggleClass('active', !!flag);
+                } else {
+                    $(".wjf-ui-select-container,.wjf-ui-select").toggleClass('active');
+                }
+            }
+
+            $('body').on('click', function () {
+                toggleSelectList(false);
+            });
+
+            $('#J_searchBtn').on('click', function () {
+                layer.open({
+                    title: '请填写验证码',
+                    content: $("#J_codeWrapTpl").html(),
+                    area: ["500px", "300px"],
+                });
+
+            });
+
+            function handleFormSubmit() {
+
+            }
+            WJF.uiTool.initTab("J_trademarkTab", {
+                onTabChange: function(tabId, currentLiDom, currentContentID, prevContentId, prevActiveTabLink, currentActiveTabLink) {
+                    if (prevActiveTabLink) {
+                        prevActiveTabLink.parent('li').removeClass('active');
+                    }
+                    currentActiveTabLink.parent('li').addClass('active');
+                }
+            });
+            $('#J_showMore').on('click',function () {
+                var dom=$(this).prev();
+                if(dom.hasClass('collapsed')){
+                    dom.removeClass('collapsed');
+                    $(this).text('收起');
+                }else{
+                    dom.addClass('collapsed');
+                    $(this).text('展开');
+                }
+            });
+            /*var keyword = $('#J_keyWordPlaceholder').val();
+            var keyword = $.trim(formData.keyword);
+            if (keyword == '') {
+                layer.alert('请输入商标关键字！');
+                return false;
+            }
+            return true;
+        }
+        $('#J_trademark_op_' + tabGrp).html(template('J_trademark_op_tpl', {
+            list: tabData_zy
+        }));*/
+        })
+    </script>
+</div>
+
+{#bottom.html}
+
+</body>
+</html>
+
+ 

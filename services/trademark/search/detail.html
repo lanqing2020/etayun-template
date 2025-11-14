@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
+    <meta name="description"
+          content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
+    <meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/miniprogram.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/lib/element-ui/@2.13.0/index.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/page/user/trademark/search/detail.css">
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
+    <script src="/Template/Tpl_2016/jscripts/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
+
+<body class="min990">
+{#top.html}
+<div class="container" id="J_containerContent" v-cloak>
+        <div class="wide1190">
+            <div class="detail-wrap detail-wrap-top">
+                <div class="detail-img">
+                    <img v-if="detailData.tmlog!=0" :src="detailData.tmlog" :alt="detailData.tmname">
+                    <span v-else>{{detailData.tmname}}</span><i class="va-m-assistant"></i>
+                </div>
+                <div class="detail-info">
+                    <div class="detail-info-title">
+                        {{detailData.tmname}}
+                        <template v-if="detailData.status==0">
+                            <span class="reg-status wait">待审中</span>
+                        </template>
+                        <template v-if="detailData.status==1">
+                            <span class="reg-status refused">已驳回</span>
+                        </template>
+                        <template v-if="detailData.status==2">
+                            <span class="reg-status first_instance">已初审</span>
+                        </template>
+                        <template v-if="detailData.status==3">
+                            <span class="reg-status registered">已注册</span>
+                        </template>
+                        <template v-if="detailData.status==4">
+                            <span class="reg-status canceled">已销亡</span>
+                        </template>
+                    </div>
+                    <p><label>商标分类：</label>{{detailData.cls || '--'}}</p>
+                    <p>
+                        <label>商标类型：</label>
+                        <template v-if="detailData.tmtype=='P'">普通商标</template>
+                        <template v-if="detailData.tmtype=='J'">集体商标</template>
+                        <template v-if="detailData.tmtype=='Z'">证明商标</template>
+                        <template v-if="detailData.tmtype=='T'">特殊商标</template>
+                    </p>
+                    <p><label>专用权期限：</label>{{detailData.privbegin || '--'}} 至 {{detailData.privend || '--'}}</p>
+                    <p><label>代理机构：</label>{{detailData.agent || '--'}}</p>
+                </div>
+            </div>
+            <div class="detail-wrap">
+                <div class="detail-title">商标信息</div>
+                <table class="detail-table">
+                    <tbody>
+                    <tr>
+                        <th>商标信息：</th>
+                        <td width="36%">{{detailData.tmname}}</td>
+                        <th>申请人：</th>
+                        <td width="36%">
+                            <template v-if="detailData.user.name!=''">{{detailData.user.name}}</template>
+                            <template v-else>{{detailData.user.name_en || '--'}}</template>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>注册号：</th>
+                        <td>{{detailData.tmno || '--'}}</td>
+                        <th>申请日期：</th>
+                        <td>{{detailData.regtime || '--'}}</td>
+                    </tr>
+                    <tr>
+                        <th>注册时间：</th>
+                        <td>{{detailData.regannotm || '--'}}</td>
+                        <th>申请地址：</th>
+                        <td>
+                            <template v-if="detailData.user.addr!=''">{{detailData.user.addr}}</template>
+                            <template v-else>{{detailData.user.addr_en || '--'}}</template>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="detail-wrap">
+                <div class="detail-title">商品服务</div>
+                <table class="detail-table">
+                    <tbody>
+                    <tr>
+                        <th>商品服务：</th>
+                        <td>
+                            <template v-for="(item,index) in detailData.svcs">
+                                {{item.groupid}}-{{item.name}}<br>
+                            </template>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="detail-wrap">
+                <div class="detail-title">其他信息</div>
+                <table class="detail-table">
+                    <tbody>
+                    <tr>
+                        <th>初审公告期号：</th>
+                        <td width="36%">{{detailData.firstanno || '--'}}</td>
+                        <th>注册公告期号：</th>
+                        <td width="36%">{{detailData.reganno || '--'}}</td>
+                    </tr>
+                    <tr>
+                        <th>初审公告日期：</th>
+                        <td>{{detailData.firstannotm || '--'}}</td>
+                        <th>注册公告日期：</th>
+                        <td>{{detailData.regannotm || '--'}}</td>
+                    </tr>
+                    <tr>
+                        <th>代理机构名称：</th>
+                        <td>{{detailData.agent || '--'}}</td>
+                        <th>备注：</th>
+                        <td>{{detailData.tminfo || '--'}}</td>
+                    </tr>
+                    <tr>
+                        <th>商标公告：</th>
+                        <td colspan="3">
+                            <template v-for="(item,index) in detailData.annos">
+                                {{item.annotime}} 第{{item.anno}}期 {{item.annotype_name}} <br>
+                            </template>
+                        </td>
+                        <!--<th>商标流程：</th>
+                        <td>
+                            2013-10-25 商标已注册<br>
+                            2013-06-24 异议复审完成<br>
+                            2011-09-14 异议复审中<br>
+                            2011-07-20 商标异议完成<br>
+                            2009-03-31 商标异议申请中<br>
+                            2008-11-06 注册申请初步审定<br>
+                            2008-10-27 注册申请部分驳回<br>
+                            2009-09-01 打印驳回或部分驳回通知书<br>
+                            2006-01-19 商标注册申请中
+                        </td>-->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var loginsuccess = "";
+    </script>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.js"></script>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.config.js?t=20200518_095711"></script>
+<script type="text/javascript" src="/Template/Tpl_2016/jscripts/lib/require/detail.js"></script>
+
+{#bottom.html}
+
+</body>
+</html>

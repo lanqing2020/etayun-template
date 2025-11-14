@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
+    <meta name="description"
+          content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
+    <meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/miniprogram.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/lib/element-ui/@2.13.0/index.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/page/user/trademark/search/index.css">
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
+    <script src="/Template/Tpl_2016/jscripts/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
+
+
+<body class="min990">
+{#top.html}
+<!-- banner 结束 -->
+<div class="container">
+    <div id="J_containerContent" v-cloak>
+        <div class="trademark-banner">
+            <a class="dis-b" href="/services/trademark/manage-tm.asp"></a>
+        </div>
+        <div class="wide1190">
+            <form class="trademark-search-form J_trademarkSearchForm" onsubmit="return false">
+                <ul class="wjf-ui-tab cl"  id="J_trademarkTab">
+                    <li class="first">
+                        <a :class="[tabIndex==1?'active':'']" href="javascript:void(0);" @click="handleChange(1,'tabIndex')">商标精确查询</a>
+                    </li>
+                    <li>
+                        <a :class="[tabIndex==2?'active':'']" href="javascript:void(0);" @click="handleChange(2,'tabIndex')">商标近似查询</a>
+                    </li>
+                </ul>
+                <!--精确查询-->
+                <div class="search-container" v-show="tabIndex==1">
+                    <div class="search-wrapper">
+                        <span class="trademark-type wjf-ui-select-wrapper">
+                            <span :class="['wjf-ui-select',showSelectList?'active':'']" @click.stop="handleChange(null,'showSelectList')">
+                                <span class="selected-text">{{typeDescMapping[type]}}</span>
+                                <input type="hidden" name="type" :value="type" autocomplete="off">
+                                <i class="trangle-arrow"></i>
+                            </span>
+                            <ul :class="['wjf-ui-select-container',showSelectList?'active':'']">
+                                <li v-for="(item,index) in typeList" :class="['item first',item==type?'active':'']" :data-value="item" :data-desc="typeDescMapping[item]" @click.stop="selectItem">{{typeDescMapping[item]}}</li>
+                            </ul>
+                        </span>
+                        <button class="search-btn" @click.prevent="submitSearch">立即查询</button>
+                        <div class="input-wrapper">
+                            <el-input
+                                    class="manager-textarea"
+                                    type="textarea"
+                                    :placeholder="'请输入您想要查询的' + typeDescMapping[type] + '\n可批量查询，一行一个'"
+                                    v-model="keyword"
+                                    clearable>
+                            </el-input>
+                        </div>
+                    </div>
+                </div>
+                <!--近似查询-->
+                <div class="jscx-container" v-show="tabIndex==2">
+                    <div class="search-wrapper">
+                        <div class="header">
+                            <a href="/paas/doc/tm/商标审查标准（2019版）.pdf" target="_blank">《商标审查标准（2019版）》</a>
+                            <div class="title">近似查询条件</div>
+                        </div>
+                    </div>
+                    <div class="module-condition">
+                        <div class="condition-items">
+                            <div class="c-item required">
+                                <label>商标名称：</label>
+                                <div class="trademark-name">
+                                    <el-input
+                                            class="manager-textarea"
+                                            type="textarea"
+                                            :placeholder="'请输入您想要查询的商标名称\n可批量查询，一行一个'"
+                                            v-model="jscx_keyword"
+                                            clearable>
+                                    </el-input>
+                                    <button class="common-btn blue-btn va-t" @click="_searchTrademark">免费查询</button>
+                                    <button class="common-btn dark-btn va-t" @click="clearJSCXCondition">重置条件</button>
+                                </div>
+                            </div>
+                            <div class="c-item">
+                                <label>查询方式：</label>
+                                <div>
+                                    <select name="jscx_type" class="select m-select" v-model="lang">
+                                        <option v-for="(item,index) in langList" :value="item">{{langDescMapping[item]}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="c-item">
+                                <label>查询类型：</label>
+                                <div class="search-ops">
+                                    <template v-for="(item,index) in opList">
+                                        <input type="checkbox" name="op" class="common-ck" :value="item" :id="'op_'+index" v-model="op">
+                                        <label :for="'op_'+index" :class="[]">{{opDescMapping[item]}}</label>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="c-item">
+                                <label>商标分类：</label>
+                                <ul class="trademark-cate-list">
+                                    <li v-for="(item,index) in trademarkCate"><span :class="['condition single',jscx_selectedConditionsMapping[item.clsid]?'selected':'']" @click="handleChange(item,'jscx_currentClsId')">{{item.clsid.length<2?('0'+item.clsid):item.clsid}}&nbsp;{{item.clsName}}</span></li>
+                                </ul>
+                            </div>
+                            <div class="c-item">
+                                <label>商标状态：</label>
+                                <ul>
+                                    <li v-for="(status,index) in trademarkStatusList"><span :class="['condition',status===jscx_status?'selected':'']"  @click="handleChange(status,'jscx_status')" >{{trademarkStatusMapping[status]}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--图形查询-->
+                <div class="jscx-container txcx-container" v-show="tabIndex==3">
+                    <div class="search-wrapper">
+                        <div class="header">
+                            <a href="/paas/doc/tm/商标审查标准（2019版）.pdf" target="_blank">《商标审查标准（2019版）》</a>
+                            <div class="title">图形查询条件</div>
+                        </div>
+                    </div>
+                    <div class="module-condition">
+                        <div class="condition-items">
+                            <div class="c-item required">
+                                <label>商标图片：</label>
+                                <div class="trademark-name">
+                                    <label class="trademark-img-label" id="J_trademark_img">
+                                        <i></i>
+                                        <span class="img-wrapper">
+                                            <img><span class="va-m-assistant"></span>
+                                        </span>
+                                        <span class="txt">点击上传图片</span>
+                                    </label>
+                                    <span class="upload-tip">
+                                        请上传2MB以内JPG或PNG格式图片； <br>
+                                        想要得到更精准的结果，请裁掉多余文字、数字、字母等，只留图形部分再上传。
+                                    </span>
+                                    <button class="common-btn blue-btn" @click="_searchTrademark">免费查询</button>
+                                    <button class="common-btn dark-btn" @click="clearTxcxCondition">重置条件</button>
+                                </div>
+                            </div>
+                            <div class="c-item required">
+                                <label>商标分类：</label>
+                                <ul class="trademark-cate-list">
+                                    <li v-for="(item,index) in trademarkCate"><span :class="['condition single',item.clsid==txcx_currentClsId?'selected':'']" @click="handleChange(item,'txcx_currentClsId')">{{item.clsid.length<2?('0'+item.clsid):item.clsid}}&nbsp;{{item.clsName}}</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--精确查询-->
+        <div :class="['tab-content',tabIndex=='1'?'active':'']">
+            <div class="wide1190 mhcx-conditions">
+                <div class="module-item module-condition" v-show="searched[1]===true">
+                    <div class="title">查询条件</div>
+                    <div class="condition-items">
+                        <div class="c-item">
+                            <label>商标分类：</label>
+                            <ul :class="[tmCateCollapsed===true?'collapsed item-sort': 'item-sort']">
+                                <li><span :class="['condition',selectedCateCondition.length==0?'selected':'']" @click="handleChange(false,'selectedCateCondition')">全部</span></li>
+                                <li v-for="(item,index) in trademarkCate"><span :class="['condition',selectedConditionsMapping[item.clsid]?'selected':'']" @click="handleChange(item,'selectedCateCondition')">{{item.clsid.length<2?('0'+item.clsid):item.clsid}}&nbsp;{{item.clsName}}</span></li>
+                            </ul>
+                            <span class="op-btn more" @click="handleChange(null,'tmCateCollapsed')">{{tmCateCollapsed?'展开':'收拢'}}</span>
+                        </div>
+                        <div class="c-item">
+                            <label>商标状态：</label>
+                            <ul>
+                                <li v-for="(status,index) in trademarkStatusList"><span :class="['condition',status===currentStatus?'selected':'']"  @click="handleChange(status,'currentStatus')" >{{trademarkStatusMapping[status]}}</span></li>
+                            </ul>
+                        </div>
+    <!--                    <div class="c-item">-->
+    <!--                        <label>申请年份：</label>-->
+    <!--                        <ul>-->
+    <!--                            <li><span class="condition selected">全部</span></li>-->
+    <!--                            <li><span class="condition">01 化工原料</span></li>-->
+    <!--                            <li><span class="condition">01 化工原料</span></li>-->
+    <!--                            <li><span class="condition">01 化工原料</span></li>-->
+    <!--                            <li><span class="condition">01 化工原料</span></li>-->
+    <!--                        </ul>-->
+    <!--                        <span class="op-btn more">展开</span>-->
+    <!--                    </div>-->
+
+                        <div class="c-item selected-items" v-if="isShowSelectedConditions">
+                            <label>已选条件：</label>
+                            <ul>
+                                <li v-if="currentStatus!==''">
+                                    <span class="condition condition-selected">
+                                        {{trademarkStatusMapping[currentStatus]}}
+                                        <i></i>
+                                        <del @click="handleChange('','currentStatus')"></del>
+                                    </span>
+                                </li>
+                                <li v-for="(item,index) in selectedCateCondition">
+                                    <span class="condition condition-selected">
+                                        {{item.clsid}}&nbsp;{{item.clsName}}
+                                        <i></i>
+                                        <del @click="handleChange(item,'selectedCateCondition')"></del>
+                                    </span>
+                                </li>
+                            </ul>
+                            <span class="op-btn clear-all" @click="clearAllSelected" v-show="currentStatus!=='' || selectedCateCondition.length>0">清空</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="module-item" v-if="searched[1]===true && keywordListTabs && keywordListTabs.length>1" style="margin-bottom: -20px;">
+                    <el-tabs v-model="keywordTabsValue" type="card" @tab-click="keywordTabsClick">
+                        <el-tab-pane
+                                v-for="(item, index) in keywordListTabs"
+                                :key="item.name"
+                                :label="item.title"
+                                :name="item.name">
+                        </el-tab-pane>
+                    </el-tabs>
+                </div>
+                <div class="module-item module-results">
+                    <trademark-list :search-data="searchData" :searched="searched" :tab-index="1" :tm-type-desc-mapping="tmTypeDescMapping"
+                    :keyword='keyword'
+                    :keyword-list='keywordList'
+                    :keyword-tabs-value='keywordTabsValue'></trademark-list>
+                </div>
+            </div>
+        </div>
+        <!--近似查询-->
+        <div :class="['tab-content',tabIndex=='2'?'active':'']">
+            <div class="wide1190">
+                <div class="module-item module-tab-jscx" v-if="searched[2]===true && jscx_keywordListTabs && jscx_keywordListTabs.length>1"  style="margin-bottom: -20px;">
+                    <el-tabs v-model="jscx_keywordTabsValue" type="card" @tab-click="jscx_keywordTabsClick">
+                        <el-tab-pane
+                                v-for="(item, index) in jscx_keywordListTabs"
+                                :key="item.name"
+                                :label="item.title"
+                                :name="item.name">
+                        </el-tab-pane>
+                    </el-tabs>
+                </div>
+                <div class="module-item module-results">
+                    <trademark-list :search-data="searchData" :searched="searched" :tab-index="2" :tm-type-desc-mapping="tmTypeDescMapping"
+                    :keyword='keyword'
+                    :keyword-list='keywordList'
+                    :keyword-tabs-value='keywordTabsValue'></trademark-list>
+                </div>
+            </div>
+        </div>
+        <!--图形查询-->
+        <div :class="['tab-content',tabIndex=='3'?'active':'']">
+            <div class="wide1190">
+                <div class="module-item module-results">
+                    <trademark-list :search-data="searchData" :searched="searched" :tab-index="3" :tm-type-desc-mapping="tmTypeDescMapping"></trademark-list>
+                </div>
+            </div>
+        </div>
+        <el-dialog title="请填写验证码" :close-on-click-modal="false" :visible.sync="searchCodeVisible" width="400px" :append-to-body='true'>
+            <el-form label-width="80px">
+                <el-form-item label="验证码：">
+                    <el-input v-model="searchCode" style="width: 100px"></el-input>
+                    <input type="hidden" name="codeKey" value="{codeKey}">
+                    <img id="img1" :src="codesrc" @click="getCode" alt="点击可刷新">
+  
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="searchCodeVisible = false">取 消</el-button>
+                <el-button type="primary" @click="searchCodeSubmit">确定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</div>
+<script type="text/html" id="J_search_result_tpl">
+    <div>
+
+        <div class="header" v-if="searched[tabIndex]===true" style="margin-bottom:5px;background:#eef6fe">
+            <span class="simple-pagination"  v-show="searchData[tabIndex].totalPage>0">
+                共<span class="highlight-number">{{searchData[tabIndex]['totalCount']}}</span>个搜索结果
+                <i class="pre-btn"></i>
+                <span class="highlight-number">{{searchData[tabIndex]['page']}}</span>/{{searchData[tabIndex]['totalPage']}}
+                <i class="next-btn"></i>
+   
+            </span>
+
+            <p>点此立即注册商标<a style="color:#2086ee;" :href="'/services/trademark/manage-tm.asp?ordertype=0&kw='+escape(keywordList.length>0 ? keywordList[keywordTabsValue]:keyword)">【{{keywordList.length>0 ? keywordList[keywordTabsValue]:keyword }}】</a></p>
+        </div>
+        <div class="header" v-if="searched[tabIndex]===true">
+            <p>商标检索结果仅供参考，不作为商标能否注册的法律依据，具体以商标局官网查询为准。</p>       
+        </div>
+        <div class="trademark-search-result" v-if="searched[tabIndex]===false">
+           <!---- <img src="https://www.west.cn/paas/images/trademark/search/without-data.png">
+            <p>请输入查询条件进行查询哦~</p>-->
+
+                <div class="module-intro">
+                    <h2 class="title" style="font-size: 30px; color: #333;text-align: center">商标注册流程</h2>
+                    <!--<p class="desc">树立品牌意识，维护品牌形象，保护品牌权益，助力品牌营销</p>-->
+                </div>
+                <div class="wide1190">
+                    <img class="flow-img" src="https://www.west.cn/paas/images/trademark/flow-img.png"
+                         alt="商标注册流程">
+                </div>
+         
+        </div>
+        <div class="trademark-item-list" v-if="searched[tabIndex]===true">
+            <template v-if="searchData && searchData[tabIndex] && searchData[tabIndex].list">
+                 <a v-for="(item,index) in searchData[tabIndex].list" class="trademark-item cl" :href="'/services/trademark/search/detail.asp?id='+item.id" target="_blank">
+                    <div class="trademark-icon">
+                        <template v-if="item.tmlog!=0">
+                            <img :src="item.tmlog" :alt="item.tmname">
+                        </template>
+                        <template v-else>
+                            <span>{{item.tmname}}</span><i class="va-m-assistant"></i>
+                        </template>
+                    </div>
+                    <div class="trademark-detail">
+                        <div class="title">
+                            {{item.tmname}}
+                            <template v-if="item.status==0">
+                                <span class="reg-status wait">待审中</span>
+                            </template>
+                            <template v-if="item.status==1">
+                                <span class="reg-status refused">已驳回</span>
+                            </template>
+                            <template v-if="item.status==2">
+                                <span class="reg-status first_instance">已初审</span>
+                            </template>
+                            <template v-if="item.status==3">
+                                <span class="reg-status registered">已注册</span>
+                            </template>
+                            <template v-if="item.status==4">
+                                <span class="reg-status canceled">已销亡</span>
+                            </template>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="item" :title="item.user.name!=''? item.user.name : item.user.name_en">
+                                    <label>申请人：</label>
+                                    <span class="highlight">
+                                        <template v-if="item.user.name!=''">{{item.user.name}}</template>
+                                        <template v-else>{{item.user.name_en}}</template>
+                                    </span>
+                                </div>
+                                <div class="item"><label>注册号：</label>{{item.tmno}}</div>
+                                <div class="item"><label>申请日期：</label>{{item.regtime}}</div>
+                            </li>
+                            <li>
+                                <div class="item"><label>商标分类：</label>{{item.cls || '--'}}</div>
+                                <div class="item"><label>初审公告号：</label>{{item.firstanno || '--'}}</div>
+                                <div class="item"><label>初审公告日期：</label>{{item.firstannotm || '--'}}</div>
+                            </li>
+                            <li>
+                                <div class="item" :title="item.agent"><label>代理机构：</label>{{item.agent || '--'}}</div>
+                                <div class="item"><label>注册公告号：</label>{{item.reganno || '--'}}</div>
+                                <div class="item"><label>注册公告日期：</label>{{item.regannotm || '--'}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </template>
+            <div class="trademark-search-result" v-if="searchData[tabIndex].list && searchData[tabIndex].list.length==0">
+                <img src="http://www.west.cn/paas/images/trademark/search/without-result.png">
+                <p>查询不到符合条件的商标~ <a href="/services/trademark/manage-tm.asp?ordertype=0">立即注册</a></p>
+            </div>
+        </div>
+        <div class="pagination text-c" v-show="searched[tabIndex]===true && searchData[tabIndex].list && searchData[tabIndex].list.length>0" :id="'pager_'+tabIndex"></div>
+    </div>
+</script>
+<script type="text/javascript">
+    var loginsuccess = "";
+    var codeKey="{codeKey}";
+</script>
+
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.js"></script>
+<script src="/Template/Tpl_2016/jscripts/lib/require/require.config.js"></script>
+<script type="text/javascript" src="/Template/Tpl_2016/jscripts/lib/require/search_index.js"></script>
+
+
+{#bottom.html}
+
+</body>
+</html>
