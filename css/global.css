@@ -1172,7 +1172,7 @@ a.yd-link {
 .wjf-more {
 	font-size:12px;
 	color:#999;
-	font-family:'ËÎÌå'
+	font-family:'ï¿½ï¿½ï¿½ï¿½'
 }
 .wjf-more-bg9b {
 	display:inline-block;
@@ -1442,7 +1442,7 @@ a.yd-link {
 	font-size:12px;
 	padding-left:22px;
 	background:url(/template/Tpl_2016/images//west_xyz.png) no-repeat left center;
-	font-family:"ËÎÌå"
+	font-family:"ï¿½ï¿½ï¿½ï¿½"
 }
 #header2016 .headerTop .welcome:hover {
 	color:#ade1fe
@@ -1639,7 +1639,7 @@ a.yd-link {
 	height:15px;
 	line-height:15px;
 	font-size:12px;
-	font-family:ËÎÌå;
+	font-family:ï¿½ï¿½ï¿½ï¿½;
 	display:inline-block;
 	color:#777
 }
@@ -1800,7 +1800,7 @@ input.fix-autofill-bg.form-input {
 }
 #header2016 .user-info-container .user-quick-nav {
 	padding:8px 15px 12px;
-	font-family:ËÎÌå
+	font-family:ï¿½ï¿½ï¿½ï¿½
 }
 #header2016 .user-info-container .user-quick-nav a {
 	font-size:12px;
@@ -1973,7 +1973,7 @@ input.fix-autofill-bg.form-input {
 	font-size:18px;
 	font-weight:700;
 	color:#ff840c;
-	font-family:"ºÚÌå"
+	font-family:"ï¿½ï¿½ï¿½ï¿½"
 }
 #header2016 .shopping-car-container .shopping-car-bottom .shopping-num {
 	color:#ff0404
@@ -2066,7 +2066,7 @@ input.fix-autofill-bg.form-input {
 	line-height:30px;
 	padding-right:90px;
 	color:#505050;
-	font-family:'ËÎÌå';
+	font-family:'ï¿½ï¿½ï¿½ï¿½';
 	*width:150px;
 	font-size:12px;
 	margin-left:25px;
@@ -2084,7 +2084,7 @@ input.fix-autofill-bg.form-input {
 	top:0;
 	color:#bebebe;
 	font-size:12px;
-	font-family:"ËÎÌå"
+	font-family:"ï¿½ï¿½ï¿½ï¿½"
 }
 #noread_countbox {
 	color:#515151;
@@ -2172,11 +2172,14 @@ input.fix-autofill-bg.form-input {
 }
 #header2016 .header-nav {
 	width:100%;
-	height:80px;
+	height:58px;
 	font-size:16px;
-	color:#333;
 	position:relative;
-	z-index:9999
+	z-index:9999;
+	line-height: 48px;
+	background: #ffffff;
+	color: #717372;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, .06);
 }
 #header2016 h1.hide {
 	display:none
