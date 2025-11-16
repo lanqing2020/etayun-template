@@ -20,7 +20,8 @@
 	 background:url(/template/Tpl_2016/images/site_map_path_arrow.gif) no-repeat 0 10px;
 	 padding-left:15px;
 	 padding-right:10px;
-	 padding-top:3px
+	 padding-top:3px;
+	font-size: 14px;
  }
 #SiteMapPath ul li a:hover {
 	color:#F60;

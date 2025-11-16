@@ -14,7 +14,6 @@ a:hover{color:#ff3600}
 	border-radius: 5px;
 	-webkit-transition:all .3s;
 	transition:all .3s;
-	font-weight: 600;
 }
 #header2016 .main-nav-wrapper li a.nav-menu:hover {
 	color:#0052d9;
@@ -185,14 +184,14 @@ a:hover{color:#ff3600}
 /*bagshow end*/
 
 /*help center*/
-.navbar-left .nl-title,.cr-search button,.mail_tab_center_on {background: #ff6c3a;}
+.navbar-left .nl-title,.cr-search button,.mail_tab_center_on {background: #0052d9;}
 .navbar-left .nl-list .active a, .navbar-left .nl-list li:hover a  {
 	background-image: linear-gradient(-90deg, #fff2cd, #ffefc3);
 	color: #a16a32;
 }
 .cr-search {border:2px solid #ff6c3a}
 .mail_tab_center_on{color:#fff}
-.navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{border-left-color: #fff2ed;}
+.navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{border-left-color: #fff1ca	;}
 /*help center end*/
 
 /*footer*/

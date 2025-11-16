@@ -197,7 +197,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 
 /*old*/
 .list-table a,.z_table a{font-size: 14px}
-#SiteMapPath{overflow: hidden;zoom:1; margin-bottom: 10px; clear: both;}
+#SiteMapPath{overflow: hidden;zoom:1; margin-bottom: 20px; clear: both;}
 #MainContentDIV {
 	margin: 0px auto 20px;
 	min-width: 950px;
@@ -253,16 +253,28 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	color:#ff7200
 }
 .mode-content .agent-btn{ width: 200px; height: 50px; line-height: 50px}
-.news-container{background-color: #f8f8f8;padding:45px 0 20px 0}
-.news-box{background-color: #fff; padding: 20px; font-size: 14px}
+.news-container{background-color: #e9ecef;padding:20px 0 20px 0}
+.news-box{
+	background: #fff;
+	border: 1px solid #d7d9dc;
+	border-radius: 4px;
+	padding: 20px;
+}
+.news-box p {
+	font-size: 15px;
+	line-height: 24px;
+	text-align: justify;
+}
 .news-title {
 	line-height:36px;
 	border-bottom:1px solid #f1f1f1;
-	padding-bottom:15px;
-	color:#4a4a4a;
-	font-size:16px;
 	text-align:center;
-	font-weight:700
+	font-size: 32px;
+	color: #232323;
+	width: 100%;
+	display: inline-block;
+	padding: 10px 0 30px 0;
+	margin-bottom: 20px;
 }
 .news-list li {
 	height:44px;
@@ -292,6 +304,10 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 }
 .content {padding: 20px 0px;}
 .con-padding{padding: 60px 0px 20px 0;}
+#PageList_Box {
+	text-align: center;
+	margin-top: 30px;
+}
 /*******************��ർ�� ��ʼ*******************/
 
 .navbar-left {
@@ -300,13 +316,13 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	margin-right: 20px;
 }
 .navbar-left .nl-title {
-	padding-left: 40px;
-	height: 70px;
-	line-height: 70px;
+	height: 40px;
+	line-height: 40px;
 	background: #3db514;
-	font-size: 26px;
+	font-size: 18px;
 	font-style: italic;
 	color: #fff;
+	text-align: center;
 }
 .navbar-left .nl-list {
 	padding: 14px 26px 55px;
@@ -314,6 +330,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 }
 .navbar-left .nl-list .item {
 	float: none;
+	margin-bottom: 10px;
 }
 .navbar-left .nl-list .item a {
 	display: block;
@@ -346,7 +363,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	height: 0;
 	border: 5px solid transparent;
 }
-.navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{right: -18px;top: 13px;border:10px solid transparent;}
+.navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{right: -17px;top: 10px;border:10px solid transparent;}
 .navbar-left .nl-list i{border-left-color: #ddd;}
 /*******************��ർ�� ����*******************/
 
