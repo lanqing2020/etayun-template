@@ -259,6 +259,8 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	border: 1px solid #d7d9dc;
 	border-radius: 4px;
 	padding: 20px;
+	width: 850px;
+	box-sizing: border-box;
 }
 .news-box p {
 	font-size: 15px;
@@ -462,4 +464,132 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 /*footer*/
 #footer2016 .footer-bottom{ padding: 20px 0;}
 /*footer end*/
+
+/**
+ 专栏页面 样式
+ */
+.content-wrap {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.sidebar {
+	width: 330px;
+}
+.sidebar .profile {
+	background: #fff;
+	position: relative;
+	border: 1px solid #d7d9dc;
+	border-radius: 7px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.sidebar .profile .collect {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: #bdbdbd;
+	vertical-align: middle;
+	font-size: 12px;
+}
+.sidebar .profile .collect i {
+	margin-right: 6px;
+	vertical-align: middle;
+	float: left;
+}
+.icon-fav-star {
+	width: 14px;
+	height: 16px;
+	display: inline-block;
+	background-image: url(../images/start.png);
+	background-position: 0 2px;
+	background-repeat: no-repeat;
+}
+.sidebar .profile-card {
+	padding-bottom: 30px;
+	text-align: center;
+}
+.sidebar .profile-card .avatar {
+	width: 82px;
+	height: 82px;
+	display: block;
+	overflow: hidden;
+	margin: 40px auto 27px;
+}
+.sidebar .profile-card .avatar img {
+	width: 82px;
+	height: 82px;
+}
+.sidebar .profile-card p {
+	margin: 0 auto;
+}
+.sidebar .profile-card .name {
+	color: #424242;
+	font-size: 20px;
+}
+.sidebar .profile-card .url {
+	margin-bottom: 10px;
+}
+.sidebar .profile-card p {
+	margin: 0 auto;
+}
+.profile ul {
+	width: 100%;
+	background: #fafafa;
+	border-top: #ececec solid 1px;
+}
+.profile .profile-col-3 li {
+	float: left;
+	text-align: center;
+	color: #a7a7a7;
+	border-left: #ececec solid 1px;
+	width: 33%;
+	height: 60px;
+	display: block;
+	background: #fafafa;
+}
+.profile li:first-child {
+	border-left: none;
+}
+.profile li span {
+	display: block;
+	margin-top: 12px;
+}
+.profile li em {
+	width: 100%;
+	font-size: 18px;
+	line-height: 22px;
+	display: block;
+	color: #747474;
+}
+.clearfix:after, .clearfix:before {
+	display: table;
+	content: "";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

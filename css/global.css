@@ -918,7 +918,7 @@ body.min990 {
 .wide1190 {
 	margin:0 auto;
 	min-width:990px;
-	max-width:1190px;
+	max-width:1200px;
 	_overflow:hidden;
 	zoom:1
 }
@@ -3030,4 +3030,8 @@ input.fix-autofill-bg.form-input {
 
 .dis-b {
     display: block;
+}
+.clearfix {
+	clear: both;
+	content: '';
 }
