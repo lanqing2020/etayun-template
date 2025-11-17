@@ -1,26 +1,26 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
-<meta name="description"
-  content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
-<meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
-<link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
-<link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
-<link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
-<link rel="stylesheet" href="/template/Tpl_2016/css/miniprogram.css">
-<link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
-<link rel="stylesheet" href="/Template/Tpl_2016/jscripts/lib/element-ui/@2.13.0/index.css">
-<link rel="stylesheet" href="/Template/Tpl_2016/jscripts/page/user/trademark/manage-proposer.css">
-<script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
-<script src="/Template/Tpl_2016/jscripts/lib/babel-polyfill/polyfill.min.js"></script>
-</head> 
+    <title>商标注册_商标注册查询_商标查询网_专利商标申请办理-{companyname}！</title>
+    <meta name="description"
+          content="{companyname},一站式企业服务平台,为企业提供商标注册查询,商标注册申请,专利商标查询等商标注册服务,以及商标变更、商标更正、商标续展、商标宽展等延伸服务和企业域名注册、主机租用、网站建设等一站式服务">
+    <meta name="keywords" content="商标注册,商标查询,商标注册查询,商标申请">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/global.css">
+    <link rel="shortcut icon" href="/template/Tpl_2016/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/common.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/tp2016.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/css/miniprogram.css">
+    <link rel="stylesheet" href="/template/Tpl_2016/lib/wjf/css/wjf-1.0.0.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/lib/element-ui/@2.13.0/index.css">
+    <link rel="stylesheet" href="/Template/Tpl_2016/jscripts/page/user/trademark/manage-proposer.css">
+    <script type="text/javascript" src="/template/Tpl_2016/jscripts/jquery-1.11.3.min.js"></script>
+    <script src="/Template/Tpl_2016/jscripts/lib/babel-polyfill/polyfill.min.js"></script>
+</head>
 {#top.html}
 <!-- 内容区域 开始 -->
-<div class="ManagerRightShow" v-cloak  id="J_baseContainer">
+<div class="ManagerRightShow" v-cloak id="J_baseContainer">
     <div class="module-title">申请人模板管理</div>
     <div class="module-container">
         <el-form :inline="true" :model="proposerFormData" class="search-form" @submit.native.prevent>
@@ -105,15 +105,17 @@
                 label="操作"
                 min-width="100">
             <template slot-scope="scope">
-               <!-- <a class="table-btn" @click="modifyProxyFile(scope.row)" href="javascript:;">
-                    <template v-if="scope.row.proxyfile==''">上传委托书</template>
-                    <template v-else>修改委托书</template>
-                </a>-->
+                <!-- <a class="table-btn" @click="modifyProxyFile(scope.row)" href="javascript:;">
+                     <template v-if="scope.row.proxyfile==''">上传委托书</template>
+                     <template v-else>修改委托书</template>
+                 </a>-->
                 <template v-if="scope.row.status!=1">
-                    <a class="table-btn" :href="'/paas/trademark/manage-proposer/create' + '?id=' + scope.row.id + '&mode=1'">修改</a>
+                    <a class="table-btn"
+                       :href="'/paas/trademark/manage-proposer/create' + '?id=' + scope.row.id + '&mode=1'">修改</a>
                 </template>
                 <template v-else>
-                    <a class="table-btn" :href="'/paas/trademark/manage-proposer/create' + '?id=' + scope.row.id + '&mode=2'">详情</a>
+                    <a class="table-btn"
+                       :href="'/paas/trademark/manage-proposer/create' + '?id=' + scope.row.id + '&mode=2'">详情</a>
                 </template>
                 <a class="table-btn" @click="delApplicant(scope.row)" href="javascript:;">删除</a>
             </template>
@@ -128,29 +130,35 @@
                 :total="totalCount">
         </el-pagination>
     </div>
-    <el-dialog :title="modifyProxyFileForm.proxyfile_preview==''? '上传委托书':'修改委托书'" :close-on-click-modal="false" :visible.sync="modifyProxyFileFormVisible" width="800px" :append-to-body='true'>
+    <el-dialog :title="modifyProxyFileForm.proxyfile_preview==''? '上传委托书':'修改委托书'"
+               :close-on-click-modal="false" :visible.sync="modifyProxyFileFormVisible" width="800px"
+               :append-to-body='true'>
         <el-form :model="modifyProxyFileForm" label-width="216px">
             <div class="upload-wrap-tip">
                 据商标局简化商标申请通知，同一申请人办理多件商标注册申请，可使用不填写商标名称的代理书，若您需要注册多个商标，建议上传不含商标名称版代理委托书。
                 <p>注意：委托书是依据申请人模板生成，下载后请勿随意修改。</p>
             </div>
-            <el-form-item label="不含商标名称代理委托书：" >
+            <el-form-item label="不含商标名称代理委托书：">
                 <div class="upload-wrap cl">
-                    <label :class="['upload-wrap-img', modifyProxyFileForm.proxyfile_preview!=''?'show-preview':'']"  id="J_trademark_wts">
+                    <label :class="['upload-wrap-img', modifyProxyFileForm.proxyfile_preview!=''?'show-preview':'']"
+                           id="J_trademark_wts">
                         <i></i>
                         <span class="img-wrapper">
-                            <img id="J_proxyfile_preview" ><span class="va-m-assistant"></span>
+                            <img id="J_proxyfile_preview"><span class="va-m-assistant"></span>
                         </span>
                         <span class="txt">点击上传不含名称委托书</span>
                     </label>
-                    <div class="upload-example" @click="previewImg" preview-src="/paas/images/trademark/reg/reg-img.jpg" >
+                    <div class="upload-example" @click="previewImg"
+                         preview-src="/paas/images/trademark/reg/reg-img.jpg">
                         <i></i>
-                        <img src="/paas/images/trademark/reg/reg-img-small.jpg" alt="样例" >
+                        <img src="/paas/images/trademark/reg/reg-img-small.jpg" alt="样例">
                         <span><i></i>放大</span>
                     </div>
                 </div>
-                <a v-show="modifyProxyFileForm.proxyfile_preview_button!=''" class="blue-link mr-50" href="javascript:;" @click="previewImg" :preview-src="modifyProxyFileForm.proxyfile_preview_button">查看已上传委托书</a>
-                <a class="blue-link" :href="'/paas/trademark/manage-proposer/draw?id=' + modifyProxyFileForm.id " target="_blank">下载委托书模板(不含商标名称)</a>
+                <a v-show="modifyProxyFileForm.proxyfile_preview_button!=''" class="blue-link mr-50" href="javascript:;"
+                   @click="previewImg" :preview-src="modifyProxyFileForm.proxyfile_preview_button">查看已上传委托书</a>
+                <a class="blue-link" :href="'/paas/trademark/manage-proposer/draw?id=' + modifyProxyFileForm.id "
+                   target="_blank">下载委托书模板(不含商标名称)</a>
             </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
