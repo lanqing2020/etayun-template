@@ -257,7 +257,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 .news-box{
 	background: #fff;
 	border: 1px solid #d7d9dc;
-	border-radius: 4px;
+	border-radius: 6px;
 	padding: 20px;
 	width: 850px;
 	box-sizing: border-box;
@@ -309,6 +309,16 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 #PageList_Box {
 	text-align: center;
 	margin-top: 30px;
+	font-size: 13px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#PageList_Box a {
+	margin-right: 6px
+}
+#PageList_Box input[type='button'] {
+	margin-left: 6px;
 }
 /*******************��ർ�� ��ʼ*******************/
 
@@ -497,7 +507,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	background: #fff;
 	position: relative;
 	border: 1px solid #d7d9dc;
-	border-radius: 7px;
+	border-radius: 6px;
 	margin-bottom: 20px;
 	overflow: hidden;
 }
