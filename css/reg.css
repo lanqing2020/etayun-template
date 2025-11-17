@@ -9,13 +9,13 @@
 }
 .content {
 	padding:28px 0;
-	background-color:#F3F3F3;
 	font-size:14px
 }
 .reg-content {
 	padding:28px 46px 106px;
 	background:#fff;
-	border:1px solid #eaeaea
+	border: 1px solid #d7d9dc;
+	border-radius: 6px;
 }
 .reg-content .reg-title {
 	padding-bottom:12px;

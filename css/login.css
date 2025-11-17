@@ -44,7 +44,8 @@
 
 .login-box .login-from {
     padding: 12px 34px 15px;
-    width: 286px
+    width: 286px;
+    font-size: 14px;
 }
 
 .login-box .login-from .label-icon {
@@ -60,11 +61,11 @@
 }
 
 .login-box .login-from .label-username {
-    background: url(/template/Tpl_2016/images/icon.jpg) no-repeat 9px -845px #fff
+    background: url(/template/Tpl_2016/images/icon.jpg) no-repeat 9px -842px #fff
 }
 
 .login-box .login-from .label-password {
-    background: url(/template/Tpl_2016/images/icon.jpg) no-repeat 9px -911px #fff
+    background: url(/template/Tpl_2016/images/icon.jpg) no-repeat 9px -908px #fff
 }
 
 .login-box .login-from .form-input {
@@ -78,7 +79,8 @@
     border-left: 0;
     color: #b5b5b5;
     font-family: Arial, Tahoma, Helvetica;
-    padding-left: 0
+    padding-left: 0;
+    font-size: 14px;
 }
 
 .login-box .login-from .caplogin {
@@ -104,8 +106,12 @@
     *zoom: 1;
     float: left;
     color: #666;
-    font-size: 12px;
+    font-size: 14px;
     font-family: ����
+}
+
+.login-box .login-from .remember input {
+    margin-top: -4px;
 }
 
 .login-box .login-from .forget-pwd {
