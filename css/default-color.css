@@ -1,5 +1,5 @@
 /*public*/
-a:hover{color:#ff3600}
+a:hover{color:#0052d9}
 .common-btn {border:0;height:34px;line-height:34px;background-color: #ff6c3a;font-size:14px;margin-right:6px;width:96px;display:inline-block;*display:inline;*zoom:1;text-align:center;	-webkit-transition:all .3s ease;transition:all .3s ease;cursor:pointer}
 .common-btn:hover {background:#e54d19;color:#fff}
 .link{color: #ff6c3a;}
@@ -183,19 +183,13 @@ a:hover{color:#ff3600}
 .bagshow-goods .bagshow-table tr th,.bagshow-goods .bagshow-count{background:#f8f8f8}
 /*bagshow end*/
 
-/*help center*/
-.navbar-left .nl-title,.cr-search button,.mail_tab_center_on {background: #0052d9;}
-.navbar-left .nl-list .active a, .navbar-left .nl-list li:hover a  {
-	background-image: linear-gradient(-90deg, #fff2cd, #ffefc3);
-	color: #a16a32;
-}
-.cr-search {border:2px solid #ff6c3a}
+.cr-search {border:2px solid #9ba5b6}
 .mail_tab_center_on{color:#fff}
-.navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{border-left-color: #fff1ca	;}
+.navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{display: none;}
 /*help center end*/
 
 /*footer*/
-#footer2016{background-color: #fff; color: #898b92;}
+#footer2016{background-color: #fff; color: #898b92;margin-top: 20px;}
 #footer2016 .footer-bottom p a,#footer2016 .footer-bottom p a:hover{ color: #898b92;}
 /*footer end*/
 
