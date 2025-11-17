@@ -183,13 +183,12 @@ a:hover{color:#0052d9}
 .bagshow-goods .bagshow-table tr th,.bagshow-goods .bagshow-count{background:#f8f8f8}
 /*bagshow end*/
 
-.cr-search {border:2px solid #9ba5b6}
 .mail_tab_center_on{color:#fff}
 .navbar-left .nl-list .active i,.navbar-left .nl-list li:hover i{display: none;}
 /*help center end*/
 
 /*footer*/
-#footer2016{background-color: #fff; color: #898b92;margin-top: 20px;}
+#footer2016{background-color: #fff; color: #898b92;}
 #footer2016 .footer-bottom p a,#footer2016 .footer-bottom p a:hover{ color: #898b92;}
 /*footer end*/
 

@@ -19,12 +19,10 @@
 <body class="min990">
 {#top.html}
 <div id="content">
-    <div class="content con-padding">
+    <div class="content">
         <div class="wide1190 cl">
             {#CustomerCenterLeft.html}
             <div id="MainRight" class="content-right cl">
-
-
                 <div class="cr-search cl">
                     <form name="form1" method="post" action="/faq/search.asp">
                         <select name="where">
@@ -231,7 +229,54 @@
         </div>
     </div>
 </div>
+<script type="application/javascript">
+    /**
+     * 切换邮件标签页的样式和对应的内容区域
+     * @param {HTMLElement} currentElement - 鼠标滑过的当前 li 元素
+     */
+    function switch_mail_Tab(currentElement) {
+        var parentUl = currentElement.parentNode;
+        var allLis = parentUl.getElementsByTagName('li');
+        var currentIndex = -1;
+        var contentIdPrefix = 'mail_box_list_'; // 内容 DIV 的 ID 前缀
 
+        // 1. 遍历 li 元素，切换 class 并确定当前索引
+        for (var i = 0; i < allLis.length; i++) {
+            var li = allLis[i];
+
+            if (li === currentElement) {
+                // 找到当前元素的索引（从 1 开始计数）
+                currentIndex = i + 1;
+                li.className = 'mail_tab_center_on';
+            } else {
+                li.className = 'mail_tab_center_off';
+            }
+        }
+
+        // 2. 根据索引和前缀构建目标内容的 ID
+        var targetContentId = contentIdPrefix + currentIndex;
+
+        // 3. 遍历所有可能的（或已知的）内容 DIV，并根据 ID 进行显示/隐藏操作
+        // 这种方法需要知道总共有多少个 tab，或者能够智能地找到所有相关 div。
+
+        // 假设我们知道总共有 6 个标签页（根据您提供的 HTML 片段推测）：
+        var totalTabs = 6;
+
+        for (var j = 1; j <= totalTabs; j++) {
+            var contentDiv = document.getElementById(contentIdPrefix + j);
+
+            if (contentDiv) { // 确保找到了这个元素
+                if (j === currentIndex) {
+                    // 显示目标内容
+                    contentDiv.style.display = 'block';
+                } else {
+                    // 隐藏其他内容
+                    contentDiv.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
 {#bottom.html}
 </body>
 </html>

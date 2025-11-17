@@ -25,9 +25,7 @@
 	margin-top:10px;
 }
 #DiySite_List_Box #DiySite_List_Box_top {
-
-	height:29px;
-	padding:11px 0px 0px 15px;
+	height:41px;
 }
 #DiySite_List_Box .DiySite_List_Box_Contet_1 {
 	width:720px;
@@ -47,7 +45,7 @@
 }
 
 .mail_tab_center_on {
-	background:#3db514;
+	background:#6c8aa8;
 	color:#fff;
 	cursor:pointer;
 	text-align: center;
