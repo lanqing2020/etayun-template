@@ -275,7 +275,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	color: #232323;
 	width: 100%;
 	display: inline-block;
-	padding: 10px 0 30px 0;
+	padding: 30px 0;
 	margin-bottom: 20px;
 }
 .news-list li {
@@ -629,7 +629,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 .right_module {
 	background: #fff;
 	border: 1px solid #d7d9dc;
-	border-radius: 4px;
+	border-radius: 6px;
 	margin-bottom: 20px;
 	overflow: hidden;
 	position: relative;
@@ -659,6 +659,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	font-weight: 700;
 	position: relative;
 	border-bottom: 1px solid #ececec;
+	box-sizing: border-box;
 }
 .sidebar .sidebar_bankuai ul {
 	margin: 0 0 -1px;

@@ -17,6 +17,7 @@
         .sidebar {
             width: 330px;
         }
+
         .sidebar .sidebar_bankuai ul {
             margin: 0 0 -1px;
             padding: 0 !important;
@@ -24,6 +25,7 @@
             list-style: none;
             overflow: hidden;
         }
+
         .sidebar .sidebar_bankuai ul li {
             float: left;
             width: 49.8%;
@@ -32,23 +34,144 @@
             border-right: 1px solid #f5f5f5;
             text-indent: 35px;
         }
+
         .sidebar .sidebar_bankuai ul li:hover {
             -webkit-box-shadow: inset 0 0 20px rgba(0, 0, 0, .06);
             box-shadow: inset 0 0 20px rgba(0, 0, 0, .06);
         }
+
         .sidebar .sidebar_bankuai ul li:nth-child(2n) {
             border-right: 0;
         }
+
         .sidebar .sidebar_bankuai ul li a {
             text-decoration: none;
             line-height: 60px;
             font-size: 14px;
             color: #737373;
         }
+
         *:hover {
-            transition: .2s
-            ease-in;
+            transition: .2s ease-in;
         }
+        .sidebar .sidebar_tejia ul {
+            padding-bottom: 20px;
+        }
+        .sidebar .sidebar_tejia ul li {
+            width: 290px;
+            height: 128px;
+            margin: 0 auto;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .sidebar .sidebar_tejia ul li a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+        }
+        .sidebar .sidebar_tejia ul li a img {
+            width: 290px;
+            height: 128px;
+            border-radius: 4px;
+            border: 1px solid rgb(230, 230, 230, 0.15);
+        }
+        .sidebar .sidebar_tejia ul li a p {
+            position: absolute;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding-top: 50px;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+            display: none;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+            border-radius: 4px;
+            transition: .3s ease-in-out;
+        }
+        .sidebar .sidebar_tejia ul li a:hover p {
+            display: block;
+            line-height: 128px;
+        }
+        .dialog-mask {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: .4;
+            filter: alpha(opacity=40);
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .dialog-box {
+            background: #FFF;
+            border-radius: 12px;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .05), 0 5px 5px rgba(0, 0, 0, .08), 0 7px 10px rgba(0, 0, 0, .09), 0 22px 22px rgba(0, 0, 0, .05);
+            -moz-box-shadow: 0 5px 10px rgba(0,0,0,.05),0 5px 5px rgba(0,0,0,.08),0 7px 10px rgba(0,0,0,.09),0 22px 22px rgba(0,0,0,.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .05), 0 5px 5px rgba(0, 0, 0, .08), 0 7px 10px rgba(0, 0, 0, .09), 0 22px 22px rgba(0, 0, 0, .05);
+            display: none;
+            margin: -163px 0 0 -160px;
+            width: 320px;
+            position: fixed;
+            left: 50%;
+            top: 40%;
+            z-index: 2;
+        }
+        .dialog-title {
+            background: url("/template/Tpl_2016/images/dialog-radius-top-bg.png") repeat-x;
+            border-radius: 13px 13px 0 0;
+            overflow: hidden;
+        }
+        .dialog-content {
+            color: #757575;
+            font-size: 14px;
+            text-align: center;
+            padding: 30px;
+        }
+        .dialog-title h4 {
+            border-bottom: #e0e0e0 solid 1px;
+            box-shadow: 0 1px 10px #d1d1d1;
+            color: #757575;
+            font-size: 16px;
+            height: 49px;
+            line-height: 54px;
+            font-weight: 400;
+            text-align: center;
+        }
+        .dialog-close {
+            background: url("/template/Tpl_2016/images/btn-close-pop.png") no-repeat;
+            cursor: pointer;
+            display: inline-block;
+            height: 13px;
+            overflow: hidden;
+            opacity: 1;
+            width: 13px;
+            position: absolute;
+            right: 15px;
+            top: 17px;
+            -webkit-transition: all .3s
+            linear;
+            -moz-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s
+            linear;
+        }
+        .dialog-content div {
+            margin: 5px auto;
+        }
+        .dialog-content img {
+            margin: 0 auto;
+        }
+        .dialog-content p {
+            line-height: 22px;
+        }
+
     </style>
 </head>
 <body class="min990">
@@ -88,11 +211,54 @@
                         <li><a href="/faq/2j.asp?id=17" title="模板库">模板库</a></li>
                     </ul>
                 </div>
+                <div class="right_module sidebar_tejia" id="wxqrcode">
+                    <h3>会员福利区</h3>
+                    <ul class="clearfix">
+                        <li>
+                            <a href="javascript:;">
+                                <img src="/template/Tpl_2016/images/fuli1.jpg">
+                                <p class="animated fadeIn">关注，每周领取福利</p></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="/template/Tpl_2016/images/fuli2.jpg">
+                                <p class="animated fadeIn">关注，每周领取福利</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<div class="wxqrcode_wrap animated fadeIn" id="wxqrcodeWrap" style="display: none;">
+    <div id="popMask" class="dialog-mask"></div>
+    <div class="dialog-box" style="display: block; margin-top: -210px;">
+        <div class="dialog-title">
+            <h4 class="js-title">微信扫一扫，添加好友</h4>
+            <a id="btnClose" class="dialog-close"></a>
+        </div>
+        <div class="dialog-content" style="height: auto;">
+            <div id="dialogQR">
+                <img src="/template/Tpl_2016/images/qrcode.png" width="258" height="258" />
+            </div>
+            <p class="js-summary">添加指定客服微信<br>咨询相关建站问题，还可获取领取会员福利哦</p>
+        </div>
+    </div>
+</div>
 {#bottom.html}
+<script type="text/javascript">
+    function wxqrcodePop(obj){
+        var targetEl = $("#wxqrcodeWrap");
+        obj.click(function(){
+            targetEl.show();
+        });
+        targetEl.find("#btnClose").click(function(){
+            targetEl.hide();
+        })
+    };
+    wxqrcodePop($("#wxqrcode ul li a"));
+</script>
+
 </body>
 </html>
