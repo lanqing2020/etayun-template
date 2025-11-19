@@ -188,7 +188,13 @@ a:hover{color:#0052d9}
 /*help center end*/
 
 /*footer*/
-#footer2016{background-color: #fff; color: #898b92;}
+#footer2016{
+	background-color: #fff;
+	color: #898b92;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
 #footer2016 .footer-bottom p a,#footer2016 .footer-bottom p a:hover{ color: #898b92;}
 /*footer end*/
 

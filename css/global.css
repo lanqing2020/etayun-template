@@ -39,7 +39,7 @@ body,th,td,button,input,select,textarea {
 }
 body {
 	line-height:1.6;
-	background-color:#e9ecef;
+	background-color:white;
 }
 h1,h2,h3,h4,h5,h6 {
 	font-size:100%;
@@ -913,7 +913,9 @@ ul.inline>li,ol.inline>li {
 }
 body.min990 {
 	min-width:990px;
-	position:relative
+	min-height: 100vh;
+	position:relative;
+	height: auto;
 }
 .wide1190 {
 	margin:0 auto;

@@ -3,8 +3,11 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/CustomerCenter/howpay.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/config/AboutUsleft/AboutusLeft.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/config/CustomerCenterLeft/CustomerCenterLeft.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/config/bottom.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/config/top.html" charset="GBK" />
     <file url="file://$PROJECT_DIR$/config/top_Main.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/jscripts/cloudhost2016.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/jscripts/menu.js" charset="GBK" />
   </component>
 </project>
