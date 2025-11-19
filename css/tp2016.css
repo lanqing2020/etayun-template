@@ -324,7 +324,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 }
 .content {
 	padding: 20px 0 0 0;
-	min-height: calc(100% - 96px - 20px);
+	min-height: calc(100vh - 96px - 20px);
 	position: relative;
 }
 /*.con-padding{padding: 60px 0px 20px 0;}*/
