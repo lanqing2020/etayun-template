@@ -671,6 +671,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	width: 100%;
 	list-style: none;
 	overflow: hidden;
+	box-sizing: border-box;
 }
 .sidebar_tags ul a {
 	padding: 5px 10px;
@@ -680,6 +681,7 @@ ul.yq-link li a{ display: inline-block;background-color: #fff; width: 80%; paddi
 	border-radius: 2px;
 	margin-bottom: 10px;
 	transition: all .2s;
+	margin-right: 10px;
 }
 .sidebar_tags ul a:hover, .sidebar_tags ul a.current {
 	background: rgb(0 212 36 / 35%);

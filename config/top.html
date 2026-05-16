@@ -98,14 +98,12 @@
                     <li>
                         <a href="/services/vpsserver/" class="nav-menu" id="J_mainMenu_vps" title="VPS主机">VPS</a>
                     </li>
-                    <li>
+                    <li style="display: none">
                         <a href="/services/server/" class="nav-menu" id="J_mainMenu_zjzy" title="主机租用">主机租用</a>
                     </li>
                     <li>
-                        <a href="/services/sites/" class="nav-menu" id="J_mainMenu_yjz" title="云建站">云建站</a>
-                    </li>
-                    <li>
-                        <a href="/services/miniprogram/" class="nav-menu" id="J_mainMenu_xcx" title="小程序">小程序</a>
+                        <a href="/services/webhosting/Cloudhost.asp" class="nav-menu" id="J_mainMenu_yxj"
+                           title="独享云虚机">独享云虚机</a>
                     </li>
                     <li>
                         <a href="/services/ssl" class="nav-menu" id="J_mainMenu_ssl" title="SSL证书">SSL证书</a>
@@ -114,21 +112,36 @@
                         <a href="/services/mail/" class="nav-menu" id="J_mainMenu_qyyj" title="企业邮局">邮局</a>
                     </li>
                     <li>
-                        <a href="/services/webhosting/Cloudhost.asp" class="nav-menu" id="J_mainMenu_yxj"
-                           title="独享云虚机">云虚机</a>
-                    </li>
-                    <li>
                         <a href="/services/trademark/" class="nav-menu" id="J_mainMenu_yxj" title="商标">商标</a>
                     </li>
                     <li>
                         <a href="/news/?act=top" class="nav-menu" title="商标">专栏</a>
                     </li>
+                    <li class="nav-menu-more-mini">
+                        <a href="https://hub.etayun.com/" class="nav-menu" title="小程序" target="_blank">小程序</a>
+                    </li>
                     <li>
-                        <a href="/faq/index.asp" class="nav-menu" title="商标">常见问题</a>
+                        <a href="https://ai.etayun.com/" class="nav-menu" title="AI" target="_blank">AI</a>
+                    </li>
+                    <li>
+                        <a href="http://cloud.etayun.com/" class="nav-menu" title="云上管家" target="_blank">云上管家</a>
                     </li>
                 </ul>
             </div>
         </div>
-
     </div>
 </div>
+<style>
+    .nav-menu-more::after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        border-radius: 1.5px;
+        height: 26px;
+        background-color: #cbcbcb;
+        right: 0;
+        box-shadow: 0 5px 10px rgb(29 146 187 / 15%);
+        top: 50%;
+        margin-top: -13px;
+    }
+</style>
